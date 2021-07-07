@@ -7,6 +7,7 @@ nmp
 controll panel
 config system
 laravel-mix webpack
+composer
 
 ------------------------
 main dir is public/
