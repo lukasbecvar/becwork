@@ -17,7 +17,7 @@ main dir is public/
 
 required
 nmp
-php 7 or <
+php 7.2 or <
 
 
 
