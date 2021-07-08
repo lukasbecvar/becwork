@@ -1,4 +1,4 @@
-<p align="center"><a href="http://becvar.xyz/becwork" target="_blank"><img src="https://github.com/lordbecvold/Becwork/blob/main/public/assets/img/favicon.png" width="400"></a></p>
+<p align="center"><a href="http://becvar.xyz/becwork" target="_blank"><img src="https://github.com/lordbecvold/Becwork/blob/main/public/assets/img/favicon.png" width="200"></a></p>
 
 
 
