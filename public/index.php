@@ -4,6 +4,17 @@
 	require_once"../framework/config/ConfigManager.php";
 	require_once"../framework/crypt/HashUtils.php";
 	require_once"../framework/crypt/CryptUtils.php";
+	require_once"../framework/utils/ResponseUtils.php";
+	require_once"../framework/utils/FileUtils.php";
+	require_once"../framework/utils/MainUtils.php";
+	require_once"../framework/utils/StringUtils.php";
+	require_once"../framework/utils/SessionUtils.php";
+	require_once"../framework/utils/UrlUtils.php";
+	require_once"../framework/utils/CookieUtils.php";
+	require_once"../framework/utils/EscapeUtils.php";
+
+
+
 
 	//Init ConfigManager array
 	$pageConfig = new ConfigManager();
@@ -13,6 +24,36 @@
 
 	//Init CryptUtils array
 	$cryptUtils = new CryptUtils();
+
+	//Init ResponseUtils array
+	$responseUtils = new ResponseUtils();
+
+	//Init FileUtils array
+	$fileUtils = new FileUtils();
+
+	//Init MainUtils array
+	$mainUtils = new MainUtils();
+
+	//Init StringUtils array
+	$stringUtils = new StringUtils();
+
+	//Init SessionUtils array
+	$sessionUtils = new SessionUtils();
+
+	//Init UrlUtils array
+	$urlUtils = new UrlUtils();
+
+	//Init CookieUtils array
+	$cookieUtils = new CookieUtils();
+
+	//Init EscapeUtils array
+	$escapeUtils = new EscapeUtils();
+
+
+
+
+
+
 
 
 	//Set default encoding

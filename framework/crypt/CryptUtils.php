@@ -15,7 +15,7 @@
         /*
          * Base64 decode function
          * Input: base64 code
-         * Return: string or file 
+         * Return: string or file
         */
         public function decodeBase64($base64) {
             return base64_decode($base64);
