@@ -16,6 +16,7 @@
             global $configOBJ;
             $connection = mysqli_connect($configOBJ->config["ip"], $configOBJ->config["username"], $configOBJ->config["password"], $mysqlDbName);
             if (!$connection) {
+                http_response_code(503);
                 die('The service is currently unavailable due to a database down');
             }
 
@@ -36,6 +37,7 @@
             global $configOBJ;
             $useInsertQuery = mysqli_query($this->mysqlConnect($configOBJ->config["basedb"]), $query);
             if (!$useInsertQuery) {
+                http_response_code(503);
                 die('The service is currently unavailable due to the inability to send requests');
             }
         }
