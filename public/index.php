@@ -12,6 +12,7 @@
 	require_once"../framework/utils/UrlUtils.php";
 	require_once"../framework/utils/CookieUtils.php";
 	require_once"../framework/utils/EscapeUtils.php";
+	require_once"../framework/mysql/MysqlUtils.php";
 
 
 
@@ -49,7 +50,8 @@
 	//Init EscapeUtils array
 	$escapeUtils = new EscapeUtils();
 
-
+	//Init MysqlUtils array
+	$mysqlUtils = new MysqlUtils();
 
 
 
