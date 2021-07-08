@@ -30,6 +30,7 @@ php-curl
 
 
 přidat
-config mysql
+database creator becwor db + logs table
+
 
 udělat vlastní web s doc pro framework

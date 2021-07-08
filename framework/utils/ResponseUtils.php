@@ -4,10 +4,10 @@
 
 
 		/*
-			* The function for get website status
-			* Usage like $status = checkOnline("https://becvar.xyz");
-			* Input domain url
-			* Returned Online or Offline string
+		  * The function for get website status
+		  * Usage like $status = checkOnline("https://becvar.xyz");
+		  * Input domain url
+		  * Returned Online or Offline string
 		*/
 		public function checkOnline($domain) {
 
