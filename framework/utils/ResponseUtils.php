@@ -1,4 +1,4 @@
-<?php  
+<?php //The Response utils (Status getters utils, etc.)
 
 	class ResponseUtils {
 

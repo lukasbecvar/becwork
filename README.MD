@@ -29,3 +29,5 @@ php-curl
 
 přidat
 config mysql
+
+udělat vlastní web s doc pro framework
