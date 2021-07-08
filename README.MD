@@ -21,6 +21,7 @@ nmp
 php 7.2 or <
 mysql5.6 or <
 php-cli
+php-curl
 
 
 
