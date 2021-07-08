@@ -8,6 +8,8 @@ controll panel
 config system
 laravel-mix webpack
 composer
+simple tests
+crypt utils
 
 ------------------------
 main dir is public/
