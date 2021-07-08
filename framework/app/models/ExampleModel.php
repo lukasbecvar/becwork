@@ -2,8 +2,7 @@
 
 	class ExampleModel {
 
-
-		public $data = [
+		public static $data = [
 			"name" => "value_name",
 			"password" => "value_password",
 			"online" => false
