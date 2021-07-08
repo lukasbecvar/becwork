@@ -2,8 +2,9 @@
 
 	class PageConfig {
 
-		/*	Main config 	*/
 		public $config = [
+
+			/*	Main config 	*/
 			"appName"     => "Becwork",            //Define app name
 			"version"     => 1.0,                  //Define app version
 			"author"      => "Lukáš Bečvář",       //Define app author
