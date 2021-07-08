@@ -2,7 +2,6 @@
 	//Init framework
 	require_once"../framework/config/ConfigManager.php";
 
-
 	//Init ConfigManager array
 	$pageConfig = new ConfigManager();
 
