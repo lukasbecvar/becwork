@@ -1,6 +1,4 @@
-<?php
-
-
+<?php //Main page file index
 
 	//Init framework
 	require_once"../framework/config/ConfigManager.php";
@@ -16,6 +14,9 @@
 	//Init CryptUtils array
 	$cryptUtils = new CryptUtils();
 
+
+	//Set default encoding
+	header('Content-type: text/html; charset='.$pageConfig->getValueByName('encoding'));
 
 	//Check if maintenance mode is enabled
 	if ($pageConfig->getValueByName("maintenance") == "enable") {

@@ -11,6 +11,7 @@
 			"authorLink"  => "http://becvar.xyz/", //Define author site
 			"maintenance" => "disable",            //Define maintenance status
 			"url"         => "http://localhost",   //Define main app url
+            "encoding"    => "utf8",               //Define default charset
 
 
 			/*	Mysql config	*/
