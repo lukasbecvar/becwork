@@ -16,8 +16,7 @@
 
     //Register all testing urls
     $register = [
-        $pageConfig->config["url"],
-        $pageConfig->config["url"]."/assets/js/"
+        $pageConfig->config["url"]
     ];
 
 
