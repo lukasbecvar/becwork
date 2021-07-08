@@ -18,7 +18,7 @@ cecho "1)Start server
 2)Build dev
 3)Build production
 4)Manage Config
-
+5)Run tests
 
 
 
@@ -51,6 +51,9 @@ case  $phase in
 ;;
 4|start)
 	sh scripts/config_manager.sh
+;;
+5|start)
+	php tests/ResponseTest.php
 ;;
 99|start)
 	sh scripts/install.sh

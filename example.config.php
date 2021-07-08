@@ -9,6 +9,7 @@
 			"author"      => "Lukáš Bečvář",       //Define app author
 			"authorLink"  => "http://becvar.xyz/", //Define author site
 			"maintenance" => "disable",            //Define maintenance status
+			"url"         => "http://localhost",   //Define main app url
 
 
 			/*	Mysql config	*/
