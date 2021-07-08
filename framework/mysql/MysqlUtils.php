@@ -20,7 +20,7 @@
             }
 
             //Set mysql utf/8 charset
-            mysqli_set_charset($connection, "utf8");
+            mysqli_set_charset($connection, $configOBJ->config["encoding"]);
 
             return $connection;
         }
