@@ -19,8 +19,7 @@
         $pageConfig->config["url"]
     ];
 
-
-
+    
     //Test all pages in array
     foreach ($register as $value) {
 
@@ -40,4 +39,6 @@
             echo "\033[31mPage: ".$value." error: page not running!\033[0m\n";
         }
     }
+
+    echo"\033[33m================================================================================\n";
 ?>

@@ -54,6 +54,8 @@ case  $phase in
 ;;
 5|start)
 	php tests/ResponseTest.php
+	php tests/CryptTest.php
+	php tests/HashTest.php
 ;;
 99|start)
 	sh scripts/install.sh
