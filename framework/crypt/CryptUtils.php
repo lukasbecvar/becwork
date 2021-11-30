@@ -37,7 +37,7 @@
           * Input: string or file, decrypt key
           * Return: decrypted string
         */
-        public function decrypAES($encrypted, $key) {
+        public function decryptAES($encrypted, $key) {
             return openssl_decrypt($encrypted, "aes-128-cbc", $key);
         }
     }
