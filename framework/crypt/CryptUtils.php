@@ -23,22 +23,22 @@
 
 
         /*
-          * AES128 image encrypt
-          * Input: Image file, encrypt key
-          * Return: encrypted image
+          * AES128 AES encrypt
+          * Input: string or file, encrypt key
+          * Return: encrypted string
         */
-        public function encryptImageAES($image, $key) {
-            return openssl_encrypt($image, "aes-128-cbc", $key);
+        public function encryptAES($string, $key) {
+            return openssl_encrypt($string, "aes-128-cbc", $key);
         }
 
 
         /*
-          * AES128 image decrypt
-          * Input: Image file, decrypt key
-          * Return: decrypted image
+          * AES128 AES decrypt
+          * Input: string or file, decrypt key
+          * Return: decrypted string
         */
-        public function decryptImageAES($encryptedImage, $key) {
-            return openssl_decrypt($encryptedImage, "aes-128-cbc", $key);
+        public function decrypAES($encrypted, $key) {
+            return openssl_decrypt($encrypted, "aes-128-cbc", $key);
         }
     }
 ?>
