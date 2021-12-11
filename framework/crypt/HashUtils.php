@@ -1,6 +1,6 @@
 <?php //The main hash class
 
-    class HashUtils {
+    class HashUtils { 
 
         /*
           * Function for blowfish hash generate

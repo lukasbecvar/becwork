@@ -1,1 +1,6 @@
-*{box-sizing:border-box;margin:0;padding:0}
+/* Main css file */
+* {
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+}

@@ -1,6 +1,6 @@
 <?php //The String utils class
 
-    class StringUtils {
+    class StringUtils { 
 
 
         /*

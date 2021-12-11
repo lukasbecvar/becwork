@@ -5,7 +5,6 @@
 Becwork is a simple php framework.
 Main web dir == public/ dir
 
-
 ## Becwork features
 
  - Included webpack

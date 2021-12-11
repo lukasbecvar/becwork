@@ -1,6 +1,6 @@
 <?php //Url utils class
 
-    class UrlUtils {
+    class UrlUtils { 
 
 
         /*

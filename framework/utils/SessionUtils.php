@@ -1,6 +1,6 @@
 <?php //The session utils class
 
-    class SessionUtils {
+    class SessionUtils { 
 
 
         /*

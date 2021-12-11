@@ -15,10 +15,9 @@ yellow_echo "===================================================================
 red_echo "Please select your action!"
 yellow_echo "================================================================================"
 cecho "1)Start server
-2)Build dev
-3)Build production
-4)Manage Config
-5)Run tests
+2)Build production
+3)Manage Config
+4)Run tests
 
 
 
@@ -44,15 +43,12 @@ case  $phase in
 	sh scripts/start.sh
 ;;
 2|start)
-	sh scripts/build_dev.sh
-;;
-3|start)
 	sh scripts/build_prod.sh
 ;;
-4|start)
+3|start)
 	sh scripts/config_manager.sh
 ;;
-5|start)
+4|start)
 	php tests/ResponseTest.php
 	php tests/CryptTest.php
 	php tests/HashTest.php
