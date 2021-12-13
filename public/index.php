@@ -1,5 +1,8 @@
 <?php //Main page file index
 
+	//Autoload composer vendor
+	require_once('../vendor/autoload.php');	
+	
 	//Init framework
 	require_once"../framework/config/ConfigManager.php";
 	require_once"../framework/crypt/HashUtils.php";

@@ -83,5 +83,15 @@
             print_r($array);
             echo '</pre>';
         }
+
+
+        /*
+          * The function for print errors to page
+        */
+        public function drawErrors() {
+            ini_set('display_errors', 1);
+            ini_set('display_startup_errors', 1);
+            error_reporting(E_ALL);         
+        }
     }
 ?>
