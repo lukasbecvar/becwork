@@ -1,5 +1,5 @@
 <?php  
-	http_response_code(503);
+	http_response_code(520);
 ?>
 <!DOCTYPE html>
 <html lang="cs">
@@ -7,7 +7,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>503 Page is unavailable</title>
+	<title>520 Unknown error</title>
 </head>
 <style>
 	* { 
@@ -40,7 +40,7 @@
 </style>
 <body class="mainPage">
 	<main>
-		<center><h3 class="errorPageMSG"><strong>The service is temporarily unavailable<br></strong></h3></center>
+		<center><h3 class="errorPageMSG"><strong>Unknown error, please contact the service administrator.<br></strong></h3></center>
 	</main>
 </body>
 </html>
