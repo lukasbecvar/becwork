@@ -5,6 +5,7 @@
     "keywords": ["framework", "Becwork"],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0"
+        "php": "^7.3|^8.0",
+        "filp/whoops": "^2.14"
     }
 }
