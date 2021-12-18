@@ -28,6 +28,7 @@
           * Return: encrypted string
         */
         public function encryptAES($string, $key) {
+            error_reporting(0);
             return openssl_encrypt($string, "aes-128-cbc", $key);
         }
 
@@ -38,6 +39,7 @@
           * Return: decrypted string
         */
         public function decryptAES($encrypted, $key) {
+            error_reporting(0);
             return openssl_decrypt($encrypted, "aes-128-cbc", $key);
         }
     }
