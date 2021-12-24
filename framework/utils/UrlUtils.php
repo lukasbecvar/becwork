@@ -42,5 +42,14 @@
         public static function refrash($time, $page) {
             header("Refresh: $time; url=$page");
         }
+
+
+        /*
+          * The function for redirect with java script
+          * Usage like  jsRedirect("index.php")
+        */
+        public function jsRedirect($page) {
+          print '<script type="text/javascript">window.location.replace("'.$page.'");</script>';
+        }
     }
 ?>
