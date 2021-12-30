@@ -25,6 +25,13 @@ Main web dir == public/ dir
  - php-curl
 
 
+## Dependencies
+This project requires PHP8 or < .
+* Bouncy Castle
+   * Version: **2.14.4**
+   * [Github](https://github.com/filp/whoops)
+
+
 ## License
 
 The framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
