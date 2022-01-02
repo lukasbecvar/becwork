@@ -27,10 +27,9 @@ Main web dir == public/ dir
 
 ## Dependencies
 This project requires PHP8 or < .
-* Bouncy Castle
+* Whoops
    * Version: **2.14.4**
    * [Github](https://github.com/filp/whoops)
-
 
 ## License
 
