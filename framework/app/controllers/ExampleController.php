@@ -1,6 +1,6 @@
 <?php //The Example app controller
 
-	require_once"../framework/app/models/ExampleModel.php";
+	require_once("../framework/app/models/ExampleModel.php");
 
 	class ExampleController {
 

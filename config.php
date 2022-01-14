@@ -8,9 +8,9 @@
 			"appName"     => "Becwork",            //Define app name
 			"version"     => 1.0,                  //Define app version
 			"author"      => "Lukáš Bečvář",       //Define app author
-			"authorLink"  => "http://becvar.xyz/", //Define author site
+			"authorLink"  => "https://becvar.fun/", //Define author site
 			"maintenance" => "disable",            //Define maintenance status
-			"url"         => "http://localhost",   //Define main app url
+			"url"         => "localhost",   //Define main app url
             "encoding"    => "utf8",               //Define default charset
 
 

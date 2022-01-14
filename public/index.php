@@ -4,18 +4,18 @@
 	require_once('../vendor/autoload.php');	
 	
 	//Init framework
-	require_once"../framework/config/ConfigManager.php";
-	require_once"../framework/crypt/HashUtils.php";
-	require_once"../framework/crypt/CryptUtils.php";
-	require_once"../framework/utils/ResponseUtils.php";
-	require_once"../framework/utils/FileUtils.php";
-	require_once"../framework/utils/MainUtils.php";
-	require_once"../framework/utils/StringUtils.php";
-	require_once"../framework/utils/SessionUtils.php";
-	require_once"../framework/utils/UrlUtils.php";
-	require_once"../framework/utils/CookieUtils.php";
-	require_once"../framework/utils/EscapeUtils.php";
-	require_once"../framework/mysql/MysqlUtils.php";
+	require_once("../framework/config/ConfigManager.php");
+	require_once("../framework/crypt/HashUtils.php");
+	require_once("../framework/crypt/CryptUtils.php");
+	require_once("../framework/utils/ResponseUtils.php");
+	require_once("../framework/utils/FileUtils.php");
+	require_once("../framework/utils/MainUtils.php");
+	require_once("../framework/utils/StringUtils.php");
+	require_once("../framework/utils/SessionUtils.php");
+	require_once("../framework/utils/UrlUtils.php");
+	require_once("../framework/utils/CookieUtils.php");
+	require_once("../framework/utils/EscapeUtils.php");
+	require_once("../framework/mysql/MysqlUtils.php");
 
 
 
@@ -72,11 +72,11 @@
 
 	//Check if maintenance mode is enabled
 	if ($pageConfig->getValueByName("maintenance") == "enable") {
-		include_once"../site/errors/Maintenance.php";
+		include_once("../site/errors/Maintenance.php");
 	} else {
 
 		//Include main page file
-		include_once"../site/Main.php";
+		include_once("../site/Main.php");
 	}
 ?>
 

@@ -9,7 +9,7 @@
           * Returned mysql con usable in function, etc
         */
         public function mysqlConnect($mysqlDbName) {
-            require_once "../config.php";
+            require_once("../config.php");
 
             $configOBJ = new PageConfig();
 
@@ -33,7 +33,7 @@
           * Returned true or false if insers, array if select, etc
         */
         public function insertQuery($query) {
-            require_once "../config.php";
+            require_once("../config.php");
 
             $configOBJ = new PageConfig();
 
@@ -79,7 +79,7 @@
          * Returned escaped string
        */
         public function escapeString($string, $stripTags = false, $specialChasr = false) {
-            require_once "../config.php";
+            require_once("../config.php");
 
             $configOBJ = new PageConfig();
 
@@ -100,7 +100,7 @@
           * Input charset type
         */
         public function setCharset($charset) {
-            require_once "../config.php";
+            require_once("../config.php");
 
             $configOBJ = new PageConfig();
 
@@ -115,7 +115,7 @@
           * Return value type string or number
         */
         public function readFromMysql($query, $specifis) {
-            require_once "../config.php";
+            require_once("../config.php");
 
             $configOBJ = new PageConfig();
             
@@ -130,7 +130,7 @@
           * Return: true or false
         */
         public function isOffline() {
-            require_once "../config.php";
+            require_once("../config.php");
 
             $configOBJ = new PageConfig();
 
