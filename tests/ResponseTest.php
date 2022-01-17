@@ -2,10 +2,10 @@
 <?php //The basic tesponse codes test
 
     //Add config file
-    require_once"config.php";
+    require_once("config.php");
 
     //Add response test class
-    require_once"framework/utils/ResponseUtils.php";
+    require_once("framework/utils/ResponseUtils.php");
 
     //Init ConfigManager array
     $pageConfig = new PageConfig();

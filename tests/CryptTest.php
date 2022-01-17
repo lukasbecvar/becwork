@@ -2,7 +2,7 @@
 <?php //Basic test for crypt utils
 
     //Import util
-    require_once"framework/crypt/CryptUtils.php";
+    require_once("framework/crypt/CryptUtils.php");
 
     $cryptUtils = new CryptUtils();
     
