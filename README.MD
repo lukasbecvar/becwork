@@ -3,10 +3,9 @@
 ## About Becwork
 
 Becwork is a simple php framework.
-Main web dir == public/ dir
+
 
 ## Becwork features
-
  - Included webpack
  - Included composer
  - Controll panel
@@ -18,7 +17,12 @@ Main web dir == public/ dir
  - Session utils
 
 
+## OS
+If you are not using apt you need to rewrite installation script.
+
+
 ## Becwork required
+ - Set web root to web dir public/
  - php 7.2 or <
  - mysql5.6 or <
  - php-cli
@@ -34,3 +38,4 @@ This project requires PHP8 or < .
 ## License
 
 The framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
