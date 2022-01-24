@@ -5,13 +5,14 @@
 		public $config = [
 
 			/*	Main config 	*/
-			"appName"     => "Becwork",            //Define app name
-			"version"     => 1.0,                  //Define app version
-			"author"      => "Lukáš Bečvář",       //Define app author
+			"appName"     => "Becwork",            	//Define app name
+			"version"     => 1.0,                  	//Define app version
+			"author"      => "Lukáš Bečvář",       	//Define app author
 			"authorLink"  => "https://becvar.fun/", //Define author site
-			"maintenance" => "disable",            //Define maintenance status
-			"url"         => "localhost",   //Define main app url
-            "encoding"    => "utf8",               //Define default charset
+			"maintenance" => "disable",            	//Define maintenance status
+			"url"         => "localhost",   		//Define main app url
+			"encoding"    => "utf8",               	//Define default charset
+			"https"       => true,				   	//If this = true (Site can run only on https://)
 
 
 			/*	Mysql config	*/

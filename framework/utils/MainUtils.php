@@ -1,7 +1,7 @@
 <?php //Main utils class
 
-    class MainUtils {
- 
+    class MainUtils { 
+
 
         /*
           * The function for get php server infromation
@@ -92,6 +92,24 @@
             ini_set('display_errors', 1);
             ini_set('display_startup_errors', 1);
             error_reporting(E_ALL);         
+        }
+
+
+        /**
+          * Determine if this is a secure HTTPS connection
+          * 
+          * @return bool True if it is a secure HTTPS connection, otherwise false.
+        */
+        public function isSSL() {
+          if (isset($_SERVER['HTTPS'])) {
+              if ($_SERVER['HTTPS'] == 1) {
+                  return true;
+              } elseif ($_SERVER['HTTPS'] == 'on') {
+                  return true;
+              }
+          }
+        
+          return false;
         }
     }
 ?>

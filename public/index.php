@@ -20,40 +20,40 @@
 
 
 
-	//Init ConfigManager array
+	//Init ConfigManager
 	$pageConfig = new ConfigManager();
 
-	//Init HashUtils array
+	//Init HashUtils
 	$hashUtils = new HashUtils();
 
-	//Init CryptUtils array
+	//Init CryptUtils
 	$cryptUtils = new CryptUtils();
 
-	//Init ResponseUtils array
+	//Init ResponseUtils
 	$responseUtils = new ResponseUtils();
 
-	//Init FileUtils array
+	//Init FileUtils
 	$fileUtils = new FileUtils();
 
-	//Init MainUtils array
+	//Init MainUtils
 	$mainUtils = new MainUtils();
 
-	//Init StringUtils array
+	//Init StringUtils
 	$stringUtils = new StringUtils();
 
-	//Init SessionUtils array
+	//Init SessionUtils
 	$sessionUtils = new SessionUtils();
 
-	//Init UrlUtils array
+	//Init UrlUtils
 	$urlUtils = new UrlUtils();
 
-	//Init CookieUtils array
+	//Init CookieUtils
 	$cookieUtils = new CookieUtils();
 
-	//Init EscapeUtils array
+	//Init EscapeUtils
 	$escapeUtils = new EscapeUtils();
 
-	//Init MysqlUtils array
+	//Init MysqlUtils
 	$mysqlUtils = new MysqlUtils();
 
 
@@ -74,9 +74,20 @@
 	if ($pageConfig->getValueByName("maintenance") == "enable") {
 		include_once("../site/errors/Maintenance.php");
 	} else {
+		//Check if page loaded with valid url
+		if (($_SERVER['HTTP_HOST'] != $pageConfig->getValueByName("url")) && $_SERVER['HTTP_HOST'] != "localhost") {
+			$urlUtils->redirect("ErrorHandlerer.php?code=400");
+		}
 
+		//Check if page running on https (if https only enabled)
+		else if ($pageConfig->getValueByName("https") == true && !$mainUtils->isSSL() && $_SERVER['HTTP_HOST'] != "localhost") {
+			$urlUtils->redirect("ErrorHandlerer.php?code=400");
+		} 
+		
 		//Include main page file
-		include_once("../site/Main.php");
+		else {
+			include_once("../site/Main.php");
+		}
 	}
 ?>
 
