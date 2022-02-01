@@ -1,4 +1,4 @@
 clear
 cd public/ 
-sudo service mysql start
+sudo systemctl start mysql
 sudo php -S localhost:80

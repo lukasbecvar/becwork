@@ -1,10 +1,10 @@
 clear #Clear console after start script
 
 #Color codes.
-green_echo (){ echo "\033[32m$1\033[0m"; }
-yellow_echo () { echo "\033[33m$1\033[0m"; }
-red_echo () { echo "\033[32m$1\033[0m"; }
-cecho () { echo "\033[36m$1\033[0m"; }
+green_echo (){ echo "$(tput setaf 2)$1"; }
+yellow_echo () { echo "$(tput setaf 3)$1"; }
+red_echo () { echo "$(tput setaf 9)$1"; }
+cecho () { echo "$(tput setaf 6)$1"; }
 
 
 #Delete old build if exist
