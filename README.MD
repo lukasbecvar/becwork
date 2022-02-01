@@ -16,11 +16,6 @@ Becwork is a simple php framework.
  - Cookie utils
  - Session utils
 
-
-## OS
-If you are not using apt you need to rewrite installation script.
-
-
 ## Becwork required
  - Set web root to web dir public/
  - php 7.2 or <
