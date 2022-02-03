@@ -1,6 +1,7 @@
 <?php //The Example app controller
 
-	require_once("../framework/app/models/ExampleModel.php");
+	//Include basic example struct model
+	require_once(__DIR__."/../../models/ExampleModel.php");
 
 	class ExampleController {
 

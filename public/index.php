@@ -17,7 +17,10 @@
 	require_once("../framework/utils/EscapeUtils.php");
 	require_once("../framework/mysql/MysqlUtils.php");
 
+	//Init controller system
+	require_once("../framework/app/controller/ControllerManager.php");
 
+	
 
 
 	//Init ConfigManager
