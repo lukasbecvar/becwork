@@ -1,66 +1,52 @@
-#Becwork controll panel
+#!/bin/bash
 
-clear #Clear console after start script
+#Clear console in script start
+clear
 
-#Color codes.
-green_echo (){ echo "$(tput setaf 2)$1"; }
-yellow_echo () { echo "$(tput setaf 3)$1"; }
-red_echo () { echo "$(tput setaf 9)$1"; }
-cecho () { echo "$(tput setaf 6)$1"; }
+#Print panel menu
+echo "\033[33m\033[1m############################################################################\033[0m"
+echo "\033[33m\033[1m##\033[0m                                \033[32mWEB PANEL\033[0m                               \033[33m\033[1m##\033[0m"
+echo "\033[33m\033[1m############################################################################\033[0m"
+echo "\033[33m\033[1m##\033[0m                                                                        \033[33m\033[1m##\033[0m"
+echo "\033[33m\033[1m##\033[0m   \033[33m1    -   Start dev server\033[0m        \033[33m2   -   Build production\033[0m            \033[33m\033[1m##\033[0m"
+echo "\033[33m\033[1m##\033[0m   \033[33m3    -   Run tests\033[0m               \033[33m4   -   Run config manager\033[0m          \033[33m\033[1m##\033[0m"
+echo "\033[33m\033[1m##\033[0m                                                                        \033[33m\033[1m##\033[0m"
+echo "\033[33m\033[1m##\033[0m   \033[33m5    -   Run installer\033[0m                                               \033[33m\033[1m##\033[0m"
+echo "\033[33m\033[1m##\033[0m                                                                        \033[33m\033[1m##\033[0m"
+echo "\033[33m\033[1m############################################################################\033[0m"
+echo "\033[33m\033[1m##\033[0m   \033[33m0    -   Exit panel\033[0m                                                  \033[33m\033[1m##\033[0m"
+echo "\033[33m\033[1m############################################################################\033[0m"
 
-#Panel Gui.
-yellow_echo "================================================================================"
-green_echo  "                                  Web panel                                     "
-yellow_echo "================================================================================"
-red_echo "Please select your action!"
-yellow_echo "================================================================================"
-cecho "1)Start server
-2)Build production
-3)Manage Config
-4)Run tests
+#Stuck menu for select action
+read selector
 
+#Clear console with select
+clear
 
+#Selector methodes
+case $selector in
 
-
-
-
-
-"
-yellow_echo "================================================================================"
-red_echo "99. Install all"
-red_echo "0. Exit panel"
-yellow_echo "================================================================================"
-#End of Gui
-
-if [ -z $1 ]; then
-	read phase
-else
-	phase=$1
-fi
-
-case  $phase in
-1|start)
-	sh scripts/start.sh
-;;
-2|start)
-	sh scripts/build_prod.sh
-;;
-3|start)
-	sh scripts/config_manager.sh
-;;
-4|start)
-	php tests/ResponseTest.php
-	php tests/CryptTest.php
-	php tests/HashTest.php
-;;
-99|start)
-	sh scripts/install.sh
-;;
-0|quit) #Close Control panel methode
-	red_echo "Control panel exited!"
-;;
-*) #Show if vote not found
-	red_echo "Your vote not found!"
+	1*)
+		sh scripts/start.sh
+	;;
+	2*)
+		sh scripts/build_prod.sh
+	;;
+	3*)
+		php tests/ResponseTest.php
+		php tests/CryptTest.php
+		php tests/HashTest.php
+	;;
+	4*)
+		sh scripts/config_manager.sh
+	;;
+	5*)
+		sh scripts/install.sh
+	;;
+	0*)
+		exit
+	;;
+	*)
+		echo "\033[33mYour vote not found!\033[0m"
+	;;
 esac
-
-#End of script
