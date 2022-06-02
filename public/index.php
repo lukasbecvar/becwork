@@ -1,7 +1,11 @@
 <?php //Main page file index
 
 	//Autoload composer vendor
-	require_once('../vendor/autoload.php');	
+	if(file_exists('../vendor/autoload.php')) {
+		require_once('../vendor/autoload.php');	
+	} else {
+		die("Error: vendor/ not exist please install composer components");
+	} 
 	
 	//Init framework
 	require_once("../framework/config/ConfigManager.php");
