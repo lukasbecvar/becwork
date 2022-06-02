@@ -6,7 +6,6 @@ Becwork is a simple php framework.
 
 
 ## Becwork features
- - Included webpack
  - Included composer
  - Controll panel
  - Simple config system
