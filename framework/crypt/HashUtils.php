@@ -50,5 +50,16 @@
         public function genSHA256($string) {
             return hash('sha256', $string);
         }
+
+
+        /*
+          * Function for generate custom hash form string by name
+          * Usage: customhash("string", "sha1");
+          * Input: text in string, hash name in string
+          * Returned final hash form string
+        */
+        public function customhash($string, $hash) {
+          return hash($hash, $string);
+        }
     }
 ?>
