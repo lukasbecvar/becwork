@@ -10,6 +10,7 @@
 			"author"      => "Lukáš Bečvář",       	//Define app author
 			"authorLink"  => "https://becvar.fun/", //Define author site
 			"maintenance" => "disable",            	//Define maintenance status
+			"dev_mode"    => true,					//Define devmode enabled
 			"url"         => "localhost",   		//Define main app url
 			"encoding"    => "utf8",               	//Define default charset
 			"https"       => true,				   	//If this = true (Site can run only on https://)

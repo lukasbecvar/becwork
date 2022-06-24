@@ -71,7 +71,7 @@
 	//Set default encoding
 	header('Content-type: text/html; charset='.$pageConfig->getValueByName('encoding'));
 
-	if ($_SERVER['HTTP_HOST'] == "localhost") {
+	if ($pageConfig->getValueByName("dev_mode") == true) {
 		$whoops = new \Whoops\Run;
 		$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 		$whoops->register();		  
