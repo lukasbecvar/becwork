@@ -2,21 +2,26 @@
 
     class MysqlUtils {
 
-        /*
-          * The database connection function
-          * Usage like $con = mysqlConnect("dbName")
-          * Input only database name (Server ip, username, password from config.php)
-          * Returned mysql con usable in function, etc
-        */
         public function mysqlConnect($mysqlDbName) {
             require_once("../config.php");
 
             $configOBJ = new PageConfig();
 
-            $connection = mysqli_connect($configOBJ->config["ip"], $configOBJ->config["username"], $configOBJ->config["password"], $mysqlDbName);
-            if (!$connection) {
-                http_response_code(503);
-                die('The service is currently unavailable due to a database down');
+            //Try connect to database
+            try {
+                $connection = mysqli_connect($configOBJ->config["ip"], $configOBJ->config["username"], $configOBJ->config["password"], $mysqlDbName);
+            
+            } catch(Exception $e) { 
+                
+                //Print error
+                if ($configOBJ->config["dev_mode"] == false) {
+                    if ($e->getMessage() == "Connection refused") {
+                        die(include_once($_SERVER['DOCUMENT_ROOT']."/../site/errors/Maintenance.php"));
+                    } else {
+                        die(include_once($_SERVER['DOCUMENT_ROOT']."/../site/errors/UnknownError.php"));
+                    }
+                }
+
             }
 
             //Set mysql utf/8 charset
