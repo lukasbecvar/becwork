@@ -1,11 +1,4 @@
 <?php //Main page file index
-
-	//Autoload composer vendor
-	if(file_exists('../vendor/autoload.php')) {
-		require_once('../vendor/autoload.php');	
-	} else {
-		die("Error: vendor/ not exist please install composer components");
-	} 
 	
 	//Init framework
 	require_once("../framework/config/ConfigManager.php");
@@ -24,8 +17,7 @@
 	//Init controller system
 	require_once("../framework/app/controller/ControllerManager.php");
 
-	
-
+	/////////////////////////////////////////////////////////////////////////////////////////////
 
 	//Init ConfigManager
 	$pageConfig = new ConfigManager();
@@ -63,34 +55,51 @@
 	//Init MysqlUtils
 	$mysqlUtils = new MysqlUtils();
 
+	/////////////////////////////////////////////////////////////////////////////////////////////
 
-
+	//Autoload composer vendor
+	if(file_exists('../vendor/autoload.php')) {
+		require_once('../vendor/autoload.php');	
+	} else {
+		
+		//Redirect to error page if composer components is not installed
+		if ($pageConfig->getValueByName("dev_mode") == true) {
+			die(include_once("../site/errors/VendorNotFound.php"));
+		} else {
+			die(include_once("../site/errors/Maintenance.php"));
+		}
+	} 
+	
+	//Init detect mobile lib
+	$mobileDetector = new Mobile_Detect;
+	/////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
 	//Set default encoding
 	header('Content-type: text/html; charset='.$pageConfig->getValueByName('encoding'));
 
+	//Init whoops for error headling
 	if ($pageConfig->getValueByName("dev_mode") == true) {
 		$whoops = new \Whoops\Run;
 		$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
-		$whoops->register();		  
+		$whoops->register();
 	}
 
-	//Check if maintenance mode is enabled
-	if ($pageConfig->getValueByName("maintenance") == "enable") {
+	//Check if page is in maintenance mode
+	if($siteController->ifMaintenance()) {
 		include_once("../site/errors/Maintenance.php");
-	} else {
+	} else { 
+		
 		//Check if page loaded with valid url
-		if (($_SERVER['HTTP_HOST'] != $pageConfig->getValueByName("url")) && $_SERVER['HTTP_HOST'] != "localhost") {
+		if (($siteController->getHTTPhost() != $pageConfig->getValueByName("url")) && $siteController->getHTTPhost() != "localhost") {
 			$urlUtils->redirect("ErrorHandlerer.php?code=400");
 		}
-
-		//Check if page running on https (if https only enabled)
-		else if ($pageConfig->getValueByName("https") == true && !$mainUtils->isSSL() && $_SERVER['HTTP_HOST'] != "localhost") {
+		//Check if page running on https
+		else if ($pageConfig->getValueByName("https") == true && !$mainUtils->isSSL() && $siteController->getHTTPhost() != "localhost") {
 			$urlUtils->redirect("ErrorHandlerer.php?code=400");
 		} 
-		
+			
 		//Include main page file
 		else {
 			include_once("../site/Main.php");
