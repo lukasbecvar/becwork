@@ -4,7 +4,7 @@
     //Import util
     require_once("framework/crypt/CryptUtils.php");
 
-    $cryptUtils = new CryptUtils();
+    $cryptUtils = new becwork\utils\CryptUtils();
     
     if ($cryptUtils->genBase64("test") == "dGVzdA==") {
         echo"\033[32mBase64 Encode test -> dGVzdA== success\n";

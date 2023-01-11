@@ -1,6 +1,8 @@
-<?php //The Response utils (Status getters utils, etc.)
-
-	class ResponseUtils { 
+<?php 
+  
+  namespace becwork\utils;
+	
+  class ResponseUtils { 
 
 
 		/*

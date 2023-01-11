@@ -1,4 +1,6 @@
-<?php //The main hash class
+<?php // hash function
+
+    namespace becwork\utils;
 
     class HashUtils { 
 

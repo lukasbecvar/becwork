@@ -1,5 +1,7 @@
-<?php //Url utils class
+<?php 
 
+    namespace becwork\utils;
+    
     class UrlUtils { 
 
 

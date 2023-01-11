@@ -4,5 +4,5 @@
     require_once(__DIR__."/controllers/SiteController.php");
     
     //Init controllers instances
-    $siteController =  new SiteController();
+    $siteController =  new becwork\controller\SiteController();
 ?>

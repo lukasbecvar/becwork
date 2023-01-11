@@ -1,19 +1,21 @@
-<?php //The main mysql utils class
+<?php 
+
+    namespace becwork\utils;
 
     class MysqlUtils {
 
+        // mysql connect
         public function mysqlConnect($mysqlDbName) {
-            require_once("../config.php");
+            
+            global $configOBJ;
 
-            $configOBJ = new PageConfig();
-
-            //Try connect to database
+            // connect to database
             try {
                 $connection = mysqli_connect($configOBJ->config["ip"], $configOBJ->config["username"], $configOBJ->config["password"], $mysqlDbName);
             
             } catch(Exception $e) { 
                 
-                //Print error
+                // print error
                 if ($configOBJ->config["dev_mode"] == false) {
                     if ($e->getMessage() == "Connection refused") {
                         die(include_once($_SERVER['DOCUMENT_ROOT']."/../site/errors/Maintenance.php"));
@@ -24,7 +26,7 @@
 
             }
 
-            //Set mysql utf/8 charset
+            // set mysql utf/8 charset
             mysqli_set_charset($connection, $configOBJ->config["encoding"]);
 
             return $connection;
@@ -38,9 +40,8 @@
           * Returned true or false if insers, array if select, etc
         */
         public function insertQuery($query) {
-            require_once("../config.php");
 
-            $configOBJ = new PageConfig();
+            global $configOBJ;
 
             $useInsertQuery = mysqli_query($this->mysqlConnect($configOBJ->config["basedb"]), $query);
             if (!$useInsertQuery) {
@@ -84,9 +85,8 @@
          * Returned escaped string
        */
         public function escapeString($string, $stripTags = false, $specialChasr = false) {
-            require_once("../config.php");
 
-            $configOBJ = new PageConfig();
+            global $configOBJ;
 
             $out = mysqli_real_escape_string($this->mysqlConnect($configOBJ->config["basedb"]), $string);
             if ($stripTags) {
@@ -105,9 +105,8 @@
           * Input charset type
         */
         public function setCharset($charset) {
-            require_once("../config.php");
 
-            $configOBJ = new PageConfig();
+            global $configOBJ;
 
             mysqli_set_charset($this->mysqlConnect($configOBJ->config["basedb"]), $charset);
         }
@@ -120,9 +119,8 @@
           * Return value type string or number
         */
         public function readFromMysql($query, $specifis) {
-            require_once("../config.php");
 
-            $configOBJ = new PageConfig();
+            global $configOBJ;
             
             $sql=mysqli_fetch_assoc(mysqli_query($this->mysqlConnect($configOBJ->config["basedb"]), $query));
             return $sql[$specifis];
@@ -135,9 +133,8 @@
           * Return: true or false
         */
         public function isOffline() {
-            require_once("../config.php");
-
-            $configOBJ = new PageConfig();
+            
+            global $configOBJ;
 
             if($this->mysqlConnect($configOBJ->config["basedb"])->connect_error) {
                 return true;

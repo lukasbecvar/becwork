@@ -1,12 +1,14 @@
 <?php
 
+	namespace becwork\config;
+
 	class PageConfig {
 
 		public $config = [
 
 			/* Main config */
 			"appName"     => "Becwork",            	//Define app name
-			"version"     => 1.0,                  	//Define app version
+			"version"     => 2.0,                  	//Define app version
 			"author"      => "Lukáš Bečvář",       	//Define app author
 			"authorLink"  => "https://becvold.xyz/", //Define author site
 			"dev_mode"    => true,					//Define devmode enabled
@@ -16,7 +18,7 @@
 
 
 			/* Page config */
-			"maintenance" => "disable",		//Define maintenance status
+			"maintenance" => false,		//Define maintenance status
 
 
 			/*	Mysql config	*/

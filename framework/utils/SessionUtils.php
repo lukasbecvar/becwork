@@ -1,4 +1,6 @@
-<?php //The session utils class
+<?php
+    
+    namespace becwork\utils;
 
     class SessionUtils { 
 

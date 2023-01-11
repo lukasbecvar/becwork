@@ -1,20 +1,23 @@
-<?php //The Example app controller
+<?php // Example app controller
+
+    namespace becwork\controller;
 
 	class SiteController {
 
-        //Get true or false for maintenance mode
+        // get maintenance mode value
         public function ifMaintenance() {
 
             global $pageConfig;
 
-            if (($pageConfig->getValueByName('maintenance') == "enabled")) {
+            // check if maintenance enabled
+            if (($pageConfig->getValueByName('maintenance') == true)) {
                 return true;
             } else {
                 return false;
             }
         }
 
-        //Get Http host aka domain name
+        // get http host url
         public function getHTTPhost() {
             return $_SERVER['HTTP_HOST'];
         }

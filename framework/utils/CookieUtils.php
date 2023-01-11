@@ -1,4 +1,6 @@
-<?php //The cookie manage utils
+<?php 
+
+    namespace becwork\utils;
 
     class CookieUtils {
 

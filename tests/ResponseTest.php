@@ -8,10 +8,10 @@
     require_once("framework/utils/ResponseUtils.php");
 
     //Init ConfigManager array
-    $pageConfig = new PageConfig();
+    $pageConfig = new becwork\config\PageConfig();
 
     //Init response utils class
-    $responseUtils = new ResponseUtils();
+    $responseUtils = new becwork\utils\ResponseUtils();
 
 
     //Register all testing urls

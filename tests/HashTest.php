@@ -4,7 +4,7 @@
     //Import util
     require_once("framework/crypt/HashUtils.php");
 
-    $hashUtils = new HashUtils();
+    $hashUtils = new becwork\utils\HashUtils();
 
     if ($hashUtils->genBlowFish("test") == "$2y$10$123sbrznvdzvchpj8z5p5eVspVSYEKrDeIU2Rz907rTjDhWl3bCH2") {
         echo"\033[32mBlowFish hash 'test' -> $2y$10$123sbrznvdzvchpj8z5p5eVspVSYEKrDeIU2Rz907rTjDhWl3bCH2 success\n";

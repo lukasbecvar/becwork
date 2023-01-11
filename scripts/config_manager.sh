@@ -1,11 +1,11 @@
 #!/bin/bash
 
-#Clear console in script start
+# clear console in script start
 clear
 
 red_echo () { echo "$(tput setaf 9)$1"; }
 
-#Print panel menu
+# print panel menu
 echo "\033[33m\033[1m############################################################################\033[0m"
 echo "\033[33m\033[1m##\033[0m                                \033[32mWEB PANEL\033[0m                               \033[33m\033[1m##\033[0m"
 echo "\033[33m\033[1m############################################################################\033[0m"
@@ -18,13 +18,13 @@ echo "\033[33m\033[1m###########################################################
 echo "\033[33m\033[1m##\033[0m   \033[33m0    -   Back panel\033[0m                                                  \033[33m\033[1m##\033[0m"
 echo "\033[33m\033[1m############################################################################\033[0m"
 
-#Stuck menu for select action
+# ttuck menu for select action
 read selector
 
-#Clear console with select
+# clear console with select
 clear
 
-#Selector methodes
+# selector methodes
 case $selector in
 
 	1*)

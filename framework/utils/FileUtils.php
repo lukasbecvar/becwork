@@ -1,5 +1,7 @@
-<?php //The File utils class
-
+<?php 
+    
+    namespace becwork\utils;
+    
     class FileUtils {
  
         /*

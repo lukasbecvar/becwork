@@ -1,7 +1,8 @@
-<?php //The main config manager functions
+<?php // config manager functions
+
+	namespace becwork\config;
 
 	class ConfigManager {
-
 
 		/*
 		 * Get value by name form config
@@ -10,11 +11,7 @@
 		*/
 		public function getValueByName($name) {
 
-			//Init config file
-			require_once("../config.php");
-
-			//Config obj Array get
-			$configOBJ = new PageConfig();
+			global $configOBJ;
 
 			//Get String form array
 			$value = $configOBJ->config[$name];
