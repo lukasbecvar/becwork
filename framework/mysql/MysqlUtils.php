@@ -9,21 +9,14 @@
             
             global $configOBJ;
 
-            // connect to database
-            try {
-                $connection = mysqli_connect($configOBJ->config["ip"], $configOBJ->config["username"], $configOBJ->config["password"], $mysqlDbName);
-            
-            } catch(Exception $e) { 
-                
-                // print error
+            // build connection 
+            $connection = mysqli_connect($configOBJ->config["ip"], $configOBJ->config["username"], $configOBJ->config["password"], $mysqlDbName);
+        
+            // check if connection failed
+            if ($connection == false) {
                 if ($configOBJ->config["dev_mode"] == false) {
-                    if ($e->getMessage() == "Connection refused") {
-                        die(include_once($_SERVER['DOCUMENT_ROOT']."/../site/errors/Maintenance.php"));
-                    } else {
-                        die(include_once($_SERVER['DOCUMENT_ROOT']."/../site/errors/UnknownError.php"));
-                    }
+                    die('Database connection error');
                 }
-
             }
 
             // set mysql utf/8 charset
