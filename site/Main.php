@@ -8,12 +8,8 @@
 	<title>Becwork framework</title>
 </head>
 <body>
-	<?php 
-
-		$mysqlUtils->logToMysql("blabla", "lalala");
-	?>
 	<main>
-		<!--<h3 class="errorPageMSG"><strong>Becwork</strong></h3><center>-->
+		<h3 class="errorPageMSG"><strong>Becwork</strong></h3>
 	</main>
 </body>
 </html>
