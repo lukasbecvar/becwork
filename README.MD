@@ -30,10 +30,11 @@ Becwork is a simple PHP framework with basic functions.
 ## Becwork required
  - Set web root to web dir public/
  - Disable apache autoindex
- - php 7.2 or <
  - mysql5.6 or <
- - php-cli
- - php-curl
+ - PHP 8
+ - PHP-PDO
+ - PHP-cli
+ - PHP-curl
 
 ## Dependencies
 This project requires PHP8 or < .

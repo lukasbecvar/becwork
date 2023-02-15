@@ -14,7 +14,7 @@
 <body>
 	<main>
 		<p class="errorPageMSG">Your request to the webserver could not be completed</p>
-		<p class="errorPageMSG">Please check the address bar or contact your administrator</p>
+		<p class="errorPageMSG">Please try again later or contact your administrator</p>
 	</main>
 </body>
 </html>

@@ -4,6 +4,9 @@
 	margin: 0;
 	box-sizing: border-box;
 	background: rgb(20,20,20);
+	color: white;
+	font-size: 25px;
+	font-weight: bold;
 }
 
 .errorPageMSG {

@@ -21,5 +21,12 @@
         public function getHTTPhost() {
             return $_SERVER['HTTP_HOST'];
         }
+
+        // redirect to error page
+        public function redirectError($error) {
+
+            // redirct loaction header
+            header("location: ErrorHandlerer.php?code=$error");
+        }
 	}
 ?>

@@ -13,7 +13,7 @@
 </head>
 <body>
 	<main>
-		<p class="errorPageMSG">Unknown error, please contact the service administrator.</p>
+		<p class="errorPageMSG">Unknown error, please try again later or contact the service administrator.</p>
 	</main>
 </body>
 </html>

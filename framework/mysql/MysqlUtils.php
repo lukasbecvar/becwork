@@ -1,46 +1,111 @@
 <?php 
-
     namespace becwork\utils;
 
     class MysqlUtils {
 
-        // mysql connect
-        public function mysqlConnect($mysqlDbName) {
+        // function for return databse connection (input database-name)
+        public function connect() {
             
             global $configOBJ;
+            global $siteController;
 
-            // build connection 
-            $connection = mysqli_connect($configOBJ->config["ip"], $configOBJ->config["username"], $configOBJ->config["password"], $mysqlDbName);
-        
-            // check if connection failed
-            if ($connection == false) {
-                if ($configOBJ->config["dev-mode"] == false) {
-                    die('Database connection error');
+            // get mysql connection data form app config
+            $address = $configOBJ->config["mysql-address"];
+            $database = $configOBJ->config["mysql-database"];
+            $username = $configOBJ->config["mysql-username"];
+            $password = $configOBJ->config["mysql-password"];
+
+            // get default database charset
+            $encoding = $configOBJ->config["encoding"];
+            
+            // try connect to database
+            try {
+
+                // build connction string
+                $conn = new \PDO("mysql:host=$address;dbname=$database;charset=$encoding", $username, $password);
+               
+                // set the PDO error mode to exception
+                $conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+                   
+            // catch connection error
+            } catch(\PDOException $e) {
+                
+                // check if dev-mode is enabled
+                if ($configOBJ->config["dev-mode"] == true) {
+                    
+                    // print error to page
+                    die('Database connection error: '.$e->getMessage());
+                } else {
+                    
+                    // redirect to error page
+                    $siteController->redirectError("400");
                 }
             }
 
-            // set mysql utf/8 charset
-            mysqli_set_charset($connection, $configOBJ->config["encoding"]);
-
-            return $connection;
+            // return connection
+            return $conn;
         }
 
 
         /*
-          * The database insert sql query function (Use basedb name from config.php)
-          * Usage like insertQuery("INSERT INTO `users`(`firstName`, `secondName`, `password`) VALUES ('$firstName', '$secondName', '$password')"))
-          * Input sql command like string
-          * Returned true or false if insers, array if select, etc
+          * database insert sql query function (Use database name from config.php)
+          * Usage like insertQuery("INSERT INTO logs(name, value, date, remote_addr) VALUES('log name', 'log value', 'log date', 'log remote_addr')")
+          * Input: sql command like string
         */
         public function insertQuery($query) {
 
             global $configOBJ;
+            global $siteController;
 
-            $useInsertQuery = mysqli_query($this->mysqlConnect($configOBJ->config["basedb"]), $query);
-            if (!$useInsertQuery) {
-                http_response_code(503);
-                die('The service is currently unavailable due to the inability to send requests');
+            // get PDO connection
+            $connection = $this->connect();
+
+            // use prepare statement for query
+            $statement = $connection->prepare($query);
+
+            try {
+                
+                // execute prepered query
+                $statement->execute();
+
+            // catch insert error
+            } catch(\PDOException $e) {
+
+                // check if dev-mode is enabled
+                if ($configOBJ->config["dev-mode"] == true) {
+                    
+                    // print error to page
+                    die('SQL query insert error: '.$e->getMessage());
+                } else {
+                    
+                    // redirect to error page
+                    $siteController->redirectError("400");
+                }
             }
+        }
+
+
+        /*
+         * The mysql log function (Muste instaled logs table form sql)
+         * Input log name and value
+        */
+        public function logToMysql($name, $value) {
+
+            global $escapeUtils;
+            global $mainUtils;
+
+            // get data & escape
+            $name = $escapeUtils->specialCharshStrip($name);
+            $value = $escapeUtils->specialCharshStrip($value);
+
+            // get current log date
+            $date = date('d.m.Y H:i:s');
+            
+            // get remote address
+            $remote_addr = $mainUtils->getRemoteAdress();
+
+            // insert log to mysql
+            $this->insertQuery("INSERT INTO logs(name, value, date, remote_addr) VALUES('$name', '$value', '$date', '$remote_addr')");
         }
 
 
@@ -53,87 +118,6 @@
             $output = shell_exec('mysql -V');
             preg_match('@[0-9]+\.[0-9]+\.[0-9]+@', $output, $version);
             return $version[0];
-        }
-
-
-        /*
-         * The mysql log function (Muste instaled logs table form sql)
-         * Input log name and value
-       */
-        public function logToMysql($name, $value) {
-            $name = $this->escapeString($name, true, true);;
-            $value = $this->escapeString($value, true, true);
-            $date = date('d.m.Y H:i:s');
-            $remote_addr = $_SERVER['REMOTE_ADDR'];
-            $this->insertQuery("INSERT INTO `logs`(`name`, `value`, `date`, `remote_addr`) VALUES ('$name', '$value', '$date', '$remote_addr')");
-        }
-
-
-        /*
-         * The escape string function
-         * Usage standard like $str = escapeString("string")
-         * Usage protected html tasg like $str = escapeString("string", true)
-         * Usage protected html special chars like $str = escapeString("string", false, true)
-         * Usage complete protect string like $str = escapeString("string", true, true)
-         * Returned escaped string
-       */
-        public function escapeString($string, $stripTags = false, $specialChasr = false) {
-
-            global $configOBJ;
-
-            $out = mysqli_real_escape_string($this->mysqlConnect($configOBJ->config["basedb"]), $string);
-            if ($stripTags) {
-                $out = strip_tags($out);
-            }
-            if ($specialChasr) {
-                $out = htmlspecialchars($out, ENT_QUOTES);
-            }
-            return $out;
-        }
-
-
-        /*
-          * The set mysql charset to basedb from config
-          * Usage like setCharset("utf8")
-          * Input charset type
-        */
-        public function setCharset($charset) {
-
-            global $configOBJ;
-
-            mysqli_set_charset($this->mysqlConnect($configOBJ->config["basedb"]), $charset);
-        }
-
-
-        /*
-          * The read specific value from mysql base db by query
-          * Usage like $vaue = readFromMysql("SELECT name FROM users WHERE username = 'lukas'", "name");
-          * Input query select string and select value
-          * Return value type string or number
-        */
-        public function readFromMysql($query, $specifis) {
-
-            global $configOBJ;
-            
-            $sql=mysqli_fetch_assoc(mysqli_query($this->mysqlConnect($configOBJ->config["basedb"]), $query));
-            return $sql[$specifis];
-        }
-
-
-        /*
-          * Check if mysql is offline
-          * Usage like: $status = isOffline();
-          * Return: true or false
-        */
-        public function isOffline() {
-            
-            global $configOBJ;
-
-            if($this->mysqlConnect($configOBJ->config["basedb"])->connect_error) {
-                return true;
-            } else {
-                return false;
-            }
         }
     }
 ?>
