@@ -67,7 +67,7 @@
 	} else {
 		
 		// redirect to error page if composer components is not installed
-		if ($pageConfig->getValueByName("dev_mode") == true) {
+		if ($pageConfig->getValueByName("dev-mode") == true) {
 			die(include_once("../site/errors/VendorNotFound.php"));
 		} else {
 			die(include_once("../site/errors/Maintenance.php"));
@@ -81,7 +81,7 @@
 	header('Content-type: text/html; charset='.$pageConfig->getValueByName('encoding'));
 
 	// init whoops for error headling
-	if ($pageConfig->getValueByName("dev_mode") == true) {
+	if ($pageConfig->getValueByName("dev-mode") == true) {
 		$whoops = new \Whoops\Run;
 		$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 		$whoops->register();
@@ -92,12 +92,17 @@
 		include_once("../site/errors/Maintenance.php");
 	} else { 
 		
-		// check if page loaded with valid url
-		if (($siteController->getHTTPhost() != $pageConfig->getValueByName("url")) && $siteController->getHTTPhost() != "localhost") {
-			$urlUtils->redirect("ErrorHandlerer.php?code=400");
+		// check if url-check is enabled
+		if ($pageConfig->getValueByName("url-check")) {
+
+			// check if page loaded with valid url (only on if url = localhost)
+			if (($siteController->getHTTPhost() != $pageConfig->getValueByName("url")) && $siteController->getHTTPhost() != "localhost") {
+				$urlUtils->redirect("ErrorHandlerer.php?code=400");
+			}
 		}
-		// check if page running on https
-		else if ($pageConfig->getValueByName("https") == true && !$mainUtils->isSSL() && $siteController->getHTTPhost() != "localhost") {
+
+		// check if page running on https (only on if url = localhost)
+		if ($pageConfig->getValueByName("https") == true && !$mainUtils->isSSL() && $siteController->getHTTPhost() != "localhost") {
 			$urlUtils->redirect("ErrorHandlerer.php?code=400");
 		} 
 			

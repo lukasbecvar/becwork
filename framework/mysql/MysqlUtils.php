@@ -14,7 +14,7 @@
         
             // check if connection failed
             if ($connection == false) {
-                if ($configOBJ->config["dev_mode"] == false) {
+                if ($configOBJ->config["dev-mode"] == false) {
                     die('Database connection error');
                 }
             }
