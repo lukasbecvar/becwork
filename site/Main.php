@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<link rel="icon" href="assets/img/favicon.png" type="image/x-icon"/>
-	<link href="assets/css/main.css" rel="stylesheet">
-	<link rel="icon" href="assets/img/favicon.png" type="image/x-icon"/>
+	<link rel="icon" href="/assets/img/favicon.png" type="image/x-icon"/>
+	<link href="/assets/css/main.css" rel="stylesheet">
 	<title>Becwork framework</title>
 </head>
 <body>
