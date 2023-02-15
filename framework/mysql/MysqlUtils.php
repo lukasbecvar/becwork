@@ -3,7 +3,7 @@
 
     class MysqlUtils {
 
-        // function for return databse connection (input database-name)
+        // function for return databse connection
         public function connect() {
             
             global $configOBJ;
