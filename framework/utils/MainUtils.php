@@ -4,32 +4,29 @@
 
     class MainUtils { 
 
-
         /*
-          * The function for get php server infromation
-          * Usage like echo drawPhpInformation()
-          * Returned phpinfo page
+          * FUNCTION: get php server infromation
+          * USAGE echo drawPhpInformation()
+          * RETURN: phpinfo page
         */
         public function drawPhpInformation() {
             return phpinfo();
         }
 
-
         /*
-          * The function for get date by format
-          * Usage like drawData('m/d/Y h:i:s a')
-          * Input time format
-          * Return actual time in your format
+          * FUNCTION: date by format
+          * USAGE drawData('m/d/Y h:i:s a')
+          * INPUT: time format
+          * RETURN: actual time in your format
         */
         public function drawData($format) {
             return date($format);
         }
 
-
         /*
-          * The function for get user remote adress
-          * Usage like $ip = getRemoteAdress()
-          * Return remote adress
+          * FUNCTION: get user remote adress
+          * USAGE $ip = getRemoteAdress()
+          * RETURN: remote adress
         */
         public function getRemoteAdress() {
             if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
@@ -45,22 +42,18 @@
             return $address;
         }
 
-
-
         /*
-          * The function for redirect user
-          * Usage like redirect("home.php")
-          * Input page
+          * FUNCTION: get document root
+          * USAGE redirect("home.php")
         */
         public static function getRootDoc() {
             return $_SERVER['DOCUMENT_ROOT'];
         }
 
-
         /*
-          * The function for check if is lampp server
-          * Usage like $lampp = isLampp();
-          * Return true or false
+          * FUNCTION: check if is lampp server
+          * USAGE $lampp = isLampp();
+          * RETURN: true or false
         */
         public function isLampp() {
             if ($this->getRootDoc() == "/opt/lampp/htdocs") {
@@ -70,11 +63,10 @@
             }
         }
 
-
         /*
-          * The function for get protocol
-          * Usage like $protocol = getProtocol();
-          * Return protocol (http, https)
+          * FUNCTION: get running protocol
+          * USAGE $protocol = getProtocol();
+          * RETURN: protocol (http, https)
         */
         public function getProtocol() {
             if (!empty($_SERVER['HTTPS'])) {
@@ -84,11 +76,10 @@
             }
         }
 
-
         /*
-          * The function for print array
-          * Usage like drawArray($array)
-          * Input array
+          * FUNCTION: print formated array
+          * USAGE drawArray($array)
+          * INPUT: array
         */
         public function drawArray($array) {
             echo '<pre>';
@@ -96,9 +87,8 @@
             echo '</pre>';
         }
 
-
         /*
-          * The function for print errors to page
+          * display php errors
         */
         public function drawErrors() {
             ini_set('display_errors', 1);
@@ -106,22 +96,20 @@
             error_reporting(E_ALL);         
         }
 
-
-        /**
-          * Determine if this is a secure HTTPS connection
-          * 
-          * @return bool True if it is a secure HTTPS connection, otherwise false.
+        /*
+          FUNCTION: Determine if this is a secure HTTPS connection
+          RETURN: bool True if it is a secure HTTPS connection, otherwise false.
         */
         public function isSSL() {
-          if (isset($_SERVER['HTTPS'])) {
-              if ($_SERVER['HTTPS'] == 1) {
-                  return true;
-              } elseif ($_SERVER['HTTPS'] == 'on') {
-                  return true;
-              }
-          }
+            if (isset($_SERVER['HTTPS'])) {
+                if ($_SERVER['HTTPS'] == 1) {
+                    return true;
+                } elseif ($_SERVER['HTTPS'] == 'on') {
+                    return true;
+                }
+            }
         
-          return false;
+            return false;
         }
     }
 ?>

@@ -17,7 +17,7 @@
 			
 			/* page config */
 			"maintenance" => false,		// Define maintenance status
-			"dev-mode"    => false,		// define devmode enabled
+			"dev-mode"    => true,		// define devmode enabled
 			"https"       => false,		// If this = true (Site can run only on https://)
 
 			/*	mysql config	*/

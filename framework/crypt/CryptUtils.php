@@ -5,29 +5,27 @@
     class CryptUtils {
 
         /*
-          * Base64 gen function
-          * Input: String or file (img, etc.)
-          * Return: Base64 code
+          * FUNCTION: Base64 gen function
+          * INPUT: String or file (img, etc.)
+          * RETURN: Base64 code
         */
         public function genBase64($string) {
             return base64_encode($string);
         }
 
-
         /*
-          * Base64 decode function
-          * Input: base64 code
-          * Return: string or file
+          * FUNCTION: Base64 decode function
+          * INPUT: base64 code
+          * RETURN: string or file
         */
         public function decodeBase64($base64) {
             return base64_decode($base64);
         }
 
-
         /*
-          * AES128 AES encrypt
-          * Input: string or file, encrypt key
-          * Return: encrypted string
+          * FUNCTION: AES128 AES encrypt
+          * INPUT: string or file, encrypt key
+          * RETURN: encrypted string
         */
         public function encryptAES($plaintext, $password, $method) {
           
@@ -48,11 +46,10 @@
             return json_encode($data);
         }
 
-
         /*
-          * AES128 AES decrypt
-          * Input: string or file, decrypt key
-          * Return: decrypted string
+          * FUNCTION: AES128 AES decrypt
+          * INPUT: string or file, decrypt key
+          * RETURN: decrypted string
         */
         public function decryptAES($jsonString, $password, $method) {
           

@@ -5,30 +5,28 @@
     class CookieUtils {
 
         /*
-          * The function for set cookie
-          * Usage like cookieSet("TestCookie", 69, time() + (60*60*24*7));
-          * Input name value and expiration time in seconds
+          * FUNCTION: set cookie with name, value, expiration
+          * USAGE: cookieSet("TestCookie", 69, time() + (60*60*24*7));
+          * INPUT: name value and expiration time in seconds
         */
         public function cookieSet($name, $value, $expiration) {
             setcookie($name, $value, $expiration);
         }
 
-
         /*
-          * The function for get cookie
-          * Usage like $cookie = getCookie("cookieName")
-          * Input cookie name
+          * FUNCTION: get cookie by name
+          * USAGE: $cookie = getCookie("cookieName")
+          * INPUT: cookie name
           * Return cookie value
         */
         public function getCookie($name) {
             return $_COOKIE[$name];
         }
 
-
         /*
-          * The function for unset cookie by name
-          * Usage like unset_cookie("name");
-          * Input cookie name (string)
+          * FUNCTION: unset cookie by name
+          * USAGE: unset_cookie("name");
+          * INPUT: cookie name (string)
         */
         public function unset_cookie($name) {
             $host = $_SERVER['HTTP_HOST'];
@@ -57,8 +55,8 @@
         }
 
         /*
-          * The function for print cookie array
-          * Usage like printCookie()
+          * FUNCTION: print cookie array
+          * USAGE: printCookie()
         */
         public function printCookie() {
             print_r($_COOKIE);

@@ -4,51 +4,46 @@
     
     class UrlUtils { 
 
-
         /*
-          * The function for get actual url by protocol
-          * Usage like getActualURLComplete('https://')
-          * Input protocol
-          * Return actual page complete
+          * FUNCTION: get actual url by protocol
+          * USAGE: getActualURLComplete('https://')
+          * INPUT: protocol
+          * RETURN: actual page complete
         */
         public function getActualURLComplete($protocol) {
-            return $out = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
+            return $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
         }
 
-
         /*
-          * The function for get actual url by protocol
-          * Usage like getActualURL('https://')
-          * Input protocol
-          * Return actual base page
+          * FUNCTION: get actual url by protocol
+          * USAGE: getActualURL('https://')
+          * INPUT: protocol
+          * RETURN: actual base page
         */
         public function getActualURL($protocol) {
-            return $out = $protocol.$_SERVER['HTTP_HOST'];
+            return $protocol.$_SERVER['HTTP_HOST'];
         }
 
-
         /*
-          * The function for redirect user
-          * Usage like redirect("home.php")
-          * Input page
+          * FUNCTION: redirect user
+          * USAGE: redirect("home.php")
+          * INPUT: page
         */
         public function redirect($page) {
             header("location:$page");
         }
 
-
         /*
-          * The function for refrash page
-          * Usage like refrash(1, "login.php")
+          * FUNCTION: refrash page
+          * USAGE: refrash(1, "login.php")
         */
         public static function refrash($time, $page) {
             header("Refresh: $time; url=$page");
         }
 
-
         /*
-          * The function for redirect with java script
-          * Usage like  jsRedirect("index.php")
+          * FUNCTION: redirect with java script
+          * USAGE: jsRedirect("index.php")
         */
         public function jsRedirect($page) {
           print '<script type="text/javascript">window.location.replace("'.$page.'");</script>';

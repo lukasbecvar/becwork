@@ -4,12 +4,11 @@
     
     class StringUtils { 
 
-
         /*
-          * The function for generate random lower string
-          * Usage like echo genRandomStringLower(20)
-          * Input string lenght
-          * Returned random string in lowercase
+          * FUNCTION: generate random lower string
+          * USAGE: echo genRandomStringLower(20)
+          * INPUT string lenght
+          * RETURN: random string in lowercase
         */
         public function genRandomStringLower($lenght) {
             $permitted_chars = 'abcdefghijklmnopqrstuvwxyz';
@@ -17,12 +16,11 @@
             return $generated;
         }
 
-
         /*
-          * The function for generate random uper string
-          * Usage like echo genRandomStringUper(20)
-          * Input string lenght
-          * Returned random string in upercase
+          * FUNCTION: generate random uper string
+          * USAGE: echo genRandomStringUper(20)
+          * INPUT string lenght
+          * RETURN: random string in upercase
         */
         public function genRandomStringUper($lenght) {
             $permitted_chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -30,12 +28,11 @@
             return $generated;
         }
 
-
         /*
-          * The function for generate random string
-          * Usage like echo genRandomStringAll(20)
-          * Input string lenght
-          * Returned random string
+          * FUNCTION: generate random string
+          * USAGE: echo genRandomStringAll(20)
+          * INPUT string lenght
+          * RETURN: random string
         */
         public function genRandomStringAll($lenght) {
             $permitted_chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -43,12 +40,11 @@
             return $generated;
         }
 
-
         /*
-          * The function for generate random special chars
-          * Usage like echo genSpecialChars(20)
-          * Input string lenght
-          * Returned random special chars type string
+          * FUNCTION: generate random special chars
+          * USAGE: echo genSpecialChars(20)
+          * INPUT string lenght
+          * RETURN: random special chars type string
         */
         public function genSpecialChars($lenght) {
             $permitted_chars = "!#$%&()*+,-./:;<=>?@[\]^_`{|}~";
@@ -56,12 +52,11 @@
             return $generated;
         }
 
-
         /*
-          * The function for generate random characters
-          * Usage like echo genCombinated(20)
-          * Input string lenght
-          * Returned random chars type string
+          * FUNCTION: generate random characters
+          * USAGE: echo genCombinated(20)
+          * INPUT string lenght
+          * RETURN: random chars type string
         */
         public static function genCombinated($lenght) {
             $permitted_chars = "0123456789!#$%&()*+,-./:;<=>?@[\]^_`{|}~0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -69,12 +64,11 @@
             return $generated;
         }
 
-
         /*
-          * The function for generate random numbers
-          * Usage like echo genNumbrGenerator(20)
-          * Input string lenght
-          * Returned random numbers type string
+          * FUNCTION: generate random numbers
+          * USAGE: echo genNumbrGenerator(20)
+          * INPUT string lenght
+          * RETURN: random numbers type string
         */
         public static function genNumbrGenerator($lenght) {
             $permitted_chars = "0123456789";

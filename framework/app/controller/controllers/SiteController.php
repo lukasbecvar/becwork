@@ -46,5 +46,5 @@
             // redirct loaction header
             header("location: ErrorHandlerer.php?code=$error");
         }
-}
+    }
 ?>

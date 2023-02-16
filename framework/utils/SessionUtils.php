@@ -4,10 +4,9 @@
 
     class SessionUtils { 
 
-
         /*
-          * The function for start session if not started
-          * Usage like sessionStartedCheckWithStart()
+          * FUNCTION: start session if not started
+          * USAGE: sessionStartedCheckWithStart()
         */
         public function sessionStartedCheckWithStart() {
             if (session_status() == PHP_SESSION_NONE) {
@@ -15,23 +14,21 @@
             }
         }
 
-
         /*
-          * The function for set specific session
-          * Usage like setSession("name", "value")
-          * Input session name and session value
+          * FUNCTION: set specific session
+          * USAGE: setSession("name", "value")
+          * INPUT session name and session value
         */
         public function setSession($sessionName, $sessionValue) {
             $this->sessionStartedCheckWithStart();
             $_SESSION[$sessionName] = $sessionValue;
         }
 
-
         /*
-          * The function for check if session seted
-          * Usage like sessionStartedCheckWithStart("name")
-          * Input session name
-          * Return true or false
+          * FUNCTION: check if session seted
+          * USAGE: sessionStartedCheckWithStart("name")
+          * INPUT session name
+          * RETURN: true or false
         */
         public function checkSessionSet($sessionName) {
             $this->sessionStartedCheckWithStart();
@@ -42,25 +39,22 @@
             }
         }
 
-
         /*
-          * The function for session destroy (Destroy all user sessions)
-          * Usage like sessionDestroy()
+          * FUNCTION: session destroy (Destroy all user sessions)
+          * USAGE: sessionDestroy()
         */
         public function sessionDestroy() {
             $this->sessionStartedCheckWithStart();
             session_destroy();
         }
 
-
         /*
-          * The function for print session array
-          * Usage like printSession()
+          * FUNCTION: print session array
+          * USAGE: printSession()
         */
         public function printSession() {
             $this->sessionStartedCheckWithStart();
             print_r($_SESSION);
         }
     }
-
 ?>

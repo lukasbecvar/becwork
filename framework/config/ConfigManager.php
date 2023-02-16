@@ -5,9 +5,9 @@
 	class ConfigManager {
 
 		/*
-		 * Get value by name form config
-		 * Input value name
-		 * Return value 
+		 * FUNCTION: value by name form config
+		 * INPUT: value name
+		 * RETURN: value 
 		*/
 		public function getValueByName($name) {
 

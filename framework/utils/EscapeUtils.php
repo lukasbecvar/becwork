@@ -4,12 +4,11 @@
     
     class EscapeUtils {
 
-
         /*
-          * The function for replace dangerous chars in string (XSS proteection)
-          * Usage like specialCharshStrip("<p>Ola</p>")
-          * Input string
-          * Returned secure string
+          * FUNCTION: escape dangerous chars in string (XSS proteection)
+          * USAGE specialCharshStrip("<p>Ola</p>")
+          * INPUT: string
+          * RETURN secure string
         */
         public function specialCharshStrip($string) {
             return htmlspecialchars($string, ENT_QUOTES);

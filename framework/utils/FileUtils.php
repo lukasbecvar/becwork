@@ -5,9 +5,9 @@
     class FileUtils {
  
         /*
-          * The function for get json
-          * Usage like $json = getJsonFromUrl("https://www.becvar.xyz/api/becwork.json")
-          * Returned json object
+          * FUNCTION: get json by target url
+          * USAGE $json = getJsonFromUrl("https://www.becvar.xyz/api/becwork.json")
+          * RETURN json object
         */
         public function getJsonFromUrl($target) {
             $json = file_get_contents($target);

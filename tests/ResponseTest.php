@@ -13,12 +13,10 @@
     //Init response utils class
     $responseUtils = new becwork\utils\ResponseUtils();
 
-
     //Register all testing urls
     $register = [
         $pageConfig->config["url"]
     ];
-
     
     //Test all pages in array
     foreach ($register as $value) {
