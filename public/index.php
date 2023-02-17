@@ -1,6 +1,6 @@
 <?php // page file index
 	
-	// init framework
+	// init framework /////////////////////////////////////////////////////////
 	require_once("../framework/config/ConfigManager.php");
 	require_once("../framework/crypt/HashUtils.php");
 	require_once("../framework/crypt/CryptUtils.php");
@@ -17,48 +17,20 @@
 	// init controller system
 	require_once("../framework/app/controller/ControllerManager.php");
 
-	// init page config file
-	require_once("../config.php");
-
-	/////////////////////////////////////////////////////////////////////////////////////////////
-
-	// ConfigManager
-	$configOBJ = new becwork\config\PageConfig();
-	$pageConfig = new becwork\config\ConfigManager();
-
-	// HashUtils
-	$hashUtils = new becwork\utils\HashUtils();
-
-	// CryptUtils
-	$cryptUtils = new becwork\utils\CryptUtils();
-
-	// ResponseUtils
+	// init objects
 	$responseUtils = new becwork\utils\ResponseUtils();
-
-	// FileUtils
-	$fileUtils = new becwork\utils\FileUtils();
-
-	// MainUtils
-	$mainUtils = new becwork\utils\MainUtils();
-
-	// StringUtils
-	$stringUtils = new becwork\utils\StringUtils();
-
-	// SessionUtils
 	$sessionUtils = new becwork\utils\SessionUtils();
-
-	// UrlUtils
-	$urlUtils = new becwork\utils\UrlUtils();
-
-	// CookieUtils
+	$stringUtils = new becwork\utils\StringUtils();
 	$cookieUtils = new becwork\utils\CookieUtils();
-
-	// EscapeUtils
 	$escapeUtils = new becwork\utils\EscapeUtils();
-
-	// MysqlUtils
 	$mysqlUtils = new becwork\utils\MysqlUtils();
-	/////////////////////////////////////////////////////////////////////////////////////////////
+	$pageConfig = new becwork\config\ConfigManager();
+	$cryptUtils = new becwork\utils\CryptUtils();
+	$hashUtils = new becwork\utils\HashUtils();
+	$fileUtils = new becwork\utils\FileUtils();
+	$mainUtils = new becwork\utils\MainUtils();
+	$urlUtils = new becwork\utils\UrlUtils();
+	///////////////////////////////////////////////////////////////////////////
 
 	// composer vendor
 	if(file_exists('../vendor/autoload.php')) {

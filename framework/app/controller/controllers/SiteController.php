@@ -1,4 +1,4 @@
-<?php // Example app controller
+<?php // example app controller
 
     namespace becwork\controller;
 

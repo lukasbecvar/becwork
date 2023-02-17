@@ -11,13 +11,11 @@
 		*/
 		public function getValueByName($name) {
 
-			global $configOBJ;
+			require_once(__DIR__."./../../config.php");
 
-			//Get String form array
-			$value = $configOBJ->config[$name];
+			$config = new \becwork\config\PageConfig();
 
-			//Return value
-			return $value;
+			return $config->config[$name];
 		}
 	}
 ?>
