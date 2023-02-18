@@ -2,7 +2,7 @@
 Becwork is a simple PHP framework.
 
 ## Documentation
-Complete becwork documentation: [a here](https://github.com/lordbecvold/becwork/blob/main/DOC.MD)
+Complete becwork documentation: [here](https://github.com/lordbecvold/becwork/blob/main/DOC.MD)
 
 ## Features
 - Included composer

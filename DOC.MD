@@ -5,13 +5,13 @@
 - <a href="#installation">Installation</a>
 - <a href="#configuration">Configuration</a>
 
-<h2 id="requirements">Requirements</h2>
+## <h2 id="requirements">Requirements</h2>
 - os: Linux
 - Web server: apache2
 - Database: mysql or mariadb
 - PHP: PHP 8.* (PDO, CLI, CURL)
 
-<h2 id="installation">Installation</h2>
+## <h2 id="installation">Installation</h2>
 * (Development)
 - Install PHP 8, PHP-PDO, PHP-CLI, PHP-CURL
 - Install MariaDB or MySQL
@@ -32,7 +32,7 @@
 - Restart MySQL & reload apache
 - Try open your site in browser
 
-<h2 id="Configuration">Configuration</h2>
+## <h2 id="Configuration">Configuration</h2>
 - app-name = the name of the application displayed in the title
 - version = current application version number
 - author = the name of the app creator
