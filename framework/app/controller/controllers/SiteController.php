@@ -40,6 +40,11 @@
             return $output;
         }
 		
+        // get request uri
+        public function getRoute() {
+            return $_SERVER['REQUEST_URI'];
+        }
+
         // redirect to error page
         public function redirectError($error) {
 
