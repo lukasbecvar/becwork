@@ -5,7 +5,6 @@
 - <a href="#installation">Installation</a>
 - <a href="#configuration">Configuration</a>
 - <a href="#controllers">Controllers</a>
-- <a href="#utilsinformation">Utils information</a>
 - <a href="#assets">Assets</a>
 
 # <h2 id="requirements">Requirements</h2>
@@ -51,32 +50,6 @@
 # <h2 id="controllers">Controllers</h2>
 - Create a new controller under the namespace: becwork\controller
 - After creating a new controller, add it to ControllerManager.php
-
-# <h2 id="utilsinformation">Utils information</h2>
-* Config-manager:
-```getValueByName("app-name") = return config value```
-* Crypt-utils:
-```contains methods for encryption (genBase64, decodeBase64, encryptAES, decryptAES)```
-* Hash-utils:
-```contains methods for hashing passwords (genBlowFish, genSHA1, hashMD5, genSHA256, customhash)```
-* mysql-utils:
-```class for database functions (connect, insertQuery, logToMysql, fetch, fetchValue, getMySQLVersion```
-* Cookie-utils:
-```Functions for managing cookies (cookieSet, getCookie, unset_cookie, printCookie)```
-* Session-utils:
-```Session management functions (sessionStartedCheckWithStart, setSession, checkSessionSet, sessionDestroy, printSession)```
-* Escape-utils:
-```Function for editing dangerous characters in a string (specialCharshStrip)```
-* File-utils:
-```File management functions (getJsonFromUrl)```
-* Main-utils:
-```Common frequently used functions(drawPhpInformation, drawData, getRemoteAdress, getRootDoc, isLampp, getProtocol, drawArray, drawErrors, isSSL)```
-* Response-utils:
-```Functions for checking the response of websites and services (checkOnline, send404Header, drawApache404ErrorIndex, serviceOnlineCheck)```
-* String-utils:
-```functions for generating strings etc... (genRandomStringLower, genRandomStringUper, genRandomStringAll, genSpecialChars, genCombinated, genNumbrGenerator)```
-* URL-utils:
-```Function for editing dangerous characters in a string (getActualURLComplete, getActualURL, redirect, refrash, getRoute, jsRedirect)```
 
 # <h2 id="assets">Assets</h2>
 - Default css is public/assets/css/main.css
