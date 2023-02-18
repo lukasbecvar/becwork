@@ -4,6 +4,7 @@
 - <a href="#requirements">Requirements</a>
 - <a href="#installation">Installation</a>
 - <a href="#configuration">Configuration</a>
+- <a href="#utilsinformation">Utils information</a>
 
 ## <h2 id="requirements">Requirements</h2>
 - OS: ``Linux``
@@ -44,3 +45,6 @@
 - ``https`` = enable only https
 - ``maintenance`` = enable maintenance redirct mode
 - ``mysql config`` = define default mysql login data
+
+## <h2 id="utilsinformation">Configuration</h2>
+- ``Config-manager`` [getValueByName("app-name")]
