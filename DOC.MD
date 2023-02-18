@@ -6,9 +6,9 @@
 - <a href="#configuration">Configuration</a>
 
 ## <h2 id="requirements">Requirements</h2>
-- os: Linux
-- Web server: apache2
-- Database: mysql or mariadb
+- OS: {Linux}
+- WEB-SERVER: apache2
+- DATABASE: mysql or mariadb
 - PHP: PHP 8.* (PDO, CLI, CURL)
 
 ## <h2 id="installation">Installation</h2>
