@@ -47,6 +47,6 @@
 - ``mysql config`` = define default mysql login data
 
 ## <h2 id="utilsinformation">Configuration</h2>
-- Config-manager:
-```functions: getValueByName("app-name") = return config value```
+# Config-manager:
+```getValueByName("app-name") = return config value```
 
