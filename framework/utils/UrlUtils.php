@@ -42,6 +42,14 @@
         }
 
         /*
+          * FUNCTION: get route uri
+          * USAGE: $route = getRoute();
+        */
+        public function getRoute() {
+          return $_SERVER['REQUEST_URI'];
+        }
+
+        /*
           * FUNCTION: redirect with java script
           * USAGE: jsRedirect("index.php")
         */
