@@ -53,29 +53,29 @@
 - After creating a new controller, add it to ControllerManager.php
 
 # <h2 id="utilsinformation">Utils information</h2>
-## Config-manager:
+* Config-manager:
 ```getValueByName("app-name") = return config value```
-## Crypt-utils:
+* Crypt-utils:
 ```contains methods for encryption (genBase64, decodeBase64, encryptAES, decryptAES)```
-## Hash-utils:
+* Hash-utils:
 ```contains methods for hashing passwords (genBlowFish, genSHA1, hashMD5, genSHA256, customhash)```
-## mysql-utils:
+* mysql-utils:
 ```class for database functions (connect, insertQuery, logToMysql, fetch, fetchValue, getMySQLVersion```
-## Cookie-utils:
+* Cookie-utils:
 ```Functions for managing cookies (cookieSet, getCookie, unset_cookie, printCookie)```
-## Session-utils:
+* Session-utils:
 ```Session management functions (sessionStartedCheckWithStart, setSession, checkSessionSet, sessionDestroy, printSession)```
-## Escape-utils:
+* Escape-utils:
 ```Function for editing dangerous characters in a string (specialCharshStrip)```
-## File-utils:
+* File-utils:
 ```File management functions (getJsonFromUrl)```
-## Main-utils:
+* Main-utils:
 ```Common frequently used functions(drawPhpInformation, drawData, getRemoteAdress, getRootDoc, isLampp, getProtocol, drawArray, drawErrors, isSSL)```
-## Response-utils:
+* Response-utils:
 ```Functions for checking the response of websites and services (checkOnline, send404Header, drawApache404ErrorIndex, serviceOnlineCheck)```
-## String-utils:
+* String-utils:
 ```functions for generating strings etc... (genRandomStringLower, genRandomStringUper, genRandomStringAll, genSpecialChars, genCombinated, genNumbrGenerator)```
-## URL-utils:
+* URL-utils:
 ```Function for editing dangerous characters in a string (getActualURLComplete, getActualURL, redirect, refrash, getRoute, jsRedirect)```
 
 # <h2 id="assets">Assets</h2>
