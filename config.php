@@ -7,11 +7,11 @@
 		public $config = [
 
 			/* main config */
-			"appName"     => "Becwork",            	 // define app name
+			"app-name"     => "Becwork",            	 // define app name
 			"version"     => 3.0,                  	 // define app version
 			"author"      => "Lukáš Bečvář",       	 // define app author
-			"authorLink"  => "https://becvold.xyz/", // define author site
-			"url-check"   => true,				     //	check if url valid
+			"author-link"  => "https://becvold.xyz/", // define author site
+			"url-check"   => false,				     //	check if url valid
 			"url"         => "localhost",   		 // define main app url
 			"encoding"    => "utf8",               	 // define default charset
 			
