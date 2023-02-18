@@ -6,7 +6,7 @@
 - <a href="#configuration">Configuration</a>
 
 ## <h2 id="requirements">Requirements</h2>
-- OS: {Linux}
+- OS: ``Linux``
 - WEB-SERVER: apache2
 - DATABASE: mysql or mariadb
 - PHP: PHP 8.* (PDO, CLI, CURL)
