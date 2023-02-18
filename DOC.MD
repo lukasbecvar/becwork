@@ -48,5 +48,5 @@
 
 ## <h2 id="utilsinformation">Configuration</h2>
 - Config-manager:
-``functions: getValueByName("app-name") = return config value``
+```functions: getValueByName("app-name") = return config value```
 
