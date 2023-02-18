@@ -7,12 +7,12 @@
 
 ## <h2 id="requirements">Requirements</h2>
 - OS: ``Linux``
-- WEB-SERVER: apache2
-- DATABASE: mysql or mariadb
-- PHP: PHP 8.* (PDO, CLI, CURL)
+- WEB-SERVER: ``apache2``
+- DATABASE: ``mysql or mariadb``
+- PHP: ``PHP 8.* (PDO, CLI, CURL)``
 
 ## <h2 id="installation">Installation</h2>
-* (Development)
+``(Development)``
 - Install PHP 8, PHP-PDO, PHP-CLI, PHP-CURL
 - Install MariaDB or MySQL
 - Clone this repository to your project directory
@@ -21,7 +21,7 @@
 - Run composer install in (panel.sh)
 - Run development server (panel.sh)
 
-* (Production)
+``(Production)``
 - Install PHP 8, PHP-PDO, PHP-CLI, PHP-CURL
 - Install MariaDB or MySQL
 - Disable apache autoindex
@@ -33,14 +33,14 @@
 - Try open your site in browser
 
 ## <h2 id="Configuration">Configuration</h2>
-- app-name = the name of the application displayed in the title
-- version = current application version number
-- author = the name of the app creator
-- author-link = link to app developer
-- url-check = if it is enabled, url will be checked if it is the same as url in the config
-- dev-mode = Includes the whoops library
-- url = url of the application 
-- encoding = default site/database encoding format
-- https = enable only https
-- maintenance = enable maintenance redirct mode
-- mysql config = define default mysql login data
+- ``app-name`` = the name of the application displayed in the title
+- ``version`` = current application version number
+- ``author`` = the name of the app creator
+- ``author-link`` = link to app developer
+- ``url-check`` = if it is enabled, url will be checked if it is the same as url in the config
+- ``dev-mode`` = Includes the whoops library
+- ``url`` = url of the application 
+- ``encoding`` = default site/database encoding format
+- ``https`` = enable only https
+- ``maintenance`` = enable maintenance redirct mode
+- ``mysql config`` = define default mysql login data
