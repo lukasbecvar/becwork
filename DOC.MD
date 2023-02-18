@@ -1,18 +1,18 @@
 ## Becwork framework documentation
 
-## INDEX
+# INDEX
 - <a href="#requirements">Requirements</a>
 - <a href="#installation">Installation</a>
 - <a href="#configuration">Configuration</a>
 - <a href="#utilsinformation">Utils information</a>
 
-## <h2 id="requirements">Requirements</h2>
+# <h2 id="requirements">Requirements</h2>
 - OS: ``Linux``
 - WEB-SERVER: ``apache2``
 - DATABASE: ``mysql or mariadb``
 - PHP: ``PHP 8.* (PDO, CLI, CURL)``
 
-## <h2 id="installation">Installation</h2>
+# <h2 id="installation">Installation</h2>
 ``(Development)``
 - Install PHP 8, PHP-PDO, PHP-CLI, PHP-CURL
 - Install MariaDB or MySQL
@@ -33,7 +33,7 @@
 - Restart MySQL & reload apache
 - Try open your site in browser
 
-## <h2 id="Configuration">Configuration</h2>
+# <h2 id="Configuration">Configuration</h2>
 - ``app-name`` = the name of the application displayed in the title
 - ``version`` = current application version number
 - ``author`` = the name of the app creator
@@ -46,7 +46,7 @@
 - ``maintenance`` = enable maintenance redirct mode
 - ``mysql config`` = define default mysql login data
 
-## <h2 id="utilsinformation">Configuration</h2>
-#### Config-manager:
+# <h2 id="utilsinformation">Configuration</h2>
+## Config-manager:
 ```getValueByName("app-name") = return config value```
 
