@@ -14,7 +14,7 @@ main {
     text-align: center;
 }
 
-.errorPageMSG {
+.error-msg {
     color: white;
     font-size: 20px;
     width: 100%;

@@ -8,7 +8,7 @@
 </head>
 <body>
 	<main>
-		<h3 class="errorPageMSG"><strong>Becwork</strong></h3>
+		<h3 class="title-msg"><strong>Becwork</strong></h3>
 	</main>
 </body>
 </html>
