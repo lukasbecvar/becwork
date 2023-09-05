@@ -1,7 +1,7 @@
 #!/usr/bin/php
-<?php //Basic test for crypt utils
+<?php // basic test for crypt utils
 
-    //Import util
+    // import util
     require_once("framework/crypt/CryptUtils.php");
 
     $cryptUtils = new becwork\utils\CryptUtils();
@@ -19,5 +19,4 @@
     }
 
     echo"\033[33m================================================================================\n";
-
 ?>

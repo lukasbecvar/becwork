@@ -1,7 +1,7 @@
 #!/usr/bin/php
-<?php //Basic test for crypt utils
+<?php // basic test for crypt utils
 
-    //Import util
+    // import util
     require_once("framework/crypt/HashUtils.php");
 
     $hashUtils = new becwork\utils\HashUtils();

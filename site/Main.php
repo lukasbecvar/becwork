@@ -8,7 +8,8 @@
 </head>
 <body>
 	<main>
-		<h3 class="title-msg"><strong>Becwork</strong></h3>
+		<p class="title-msg"><strong>Becwork</strong></p>
+		<p class="doc-msg">The documentation is available <a href="https://github.com/lordbecvold/becwork/blob/d0401f1b6bdc99996c9009876d1e656d91de95bc/DOC.MD" target="_blank">here</a></p>
 	</main>
 </body>
 </html>

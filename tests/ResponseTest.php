@@ -1,33 +1,33 @@
 #!/usr/bin/php
-<?php //The basic tesponse codes test
+<?php // the basic tesponse codes test
 
-    //Add config file
+    // add config file
     require_once("config.php");
 
-    //Add response test class
+    // add response test class
     require_once("framework/utils/ResponseUtils.php");
 
-    //Init ConfigManager array
-    $pageConfig = new becwork\config\PageConfig();
+    // init ConfigManager array
+    $config = new becwork\config\PageConfig();
 
-    //Init response utils class
+    // init response utils class
     $responseUtils = new becwork\utils\ResponseUtils();
 
-    //Register all testing urls
+    // register all testing urls
     $register = [
-        $pageConfig->config["url"]
+        $config->config["url"]
     ];
     
-    //Test all pages in array
+    // test all pages in array
     foreach ($register as $value) {
 
-        //Check if site running
+        // check if site running
         if ($responseUtils->checkOnline($value) == "Online") {
 
-            //Get headers array
+            // get headers array
             $headers = get_headers($value, 1);
 
-            //Check if code = 200 OK
+            // check if code = 200 OK
             if ($headers[0] == 'HTTP/1.1 200 OK') {
                 echo "\033[32mPage: ".$value." working!\033[0m\n";
             } else {

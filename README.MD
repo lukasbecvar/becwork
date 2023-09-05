@@ -1,5 +1,5 @@
 ## About Becwork
-Becwork is a simple PHP framework.
+Becwork is a simple & minimalist PHP framework designed for fast development and simple customizability, contains only the most necessary functions for working with the database and basic functions.
 
 ## Documentation
 Complete becwork documentation: [here](https://github.com/lordbecvold/becwork/blob/main/DOC.MD)

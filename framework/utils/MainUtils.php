@@ -1,4 +1,4 @@
-<?php 
+<?php // main app utils
     
     namespace becwork\utils;
 
@@ -48,19 +48,6 @@
         */
         public static function getRootDoc() {
             return $_SERVER['DOCUMENT_ROOT'];
-        }
-
-        /*
-          * FUNCTION: check if is lampp server
-          * USAGE $lampp = isLampp();
-          * RETURN: true or false
-        */
-        public function isLampp() {
-            if ($this->getRootDoc() == "/opt/lampp/htdocs") {
-                return true;
-            } else {
-                return false;
-            }
         }
 
         /*

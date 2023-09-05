@@ -5,17 +5,31 @@
 	box-sizing: border-box;
 	background: rgb(20,20,20);
 	color: white;
-	font-size: 25px;
 	font-weight: bold;
 }
 
 .title-msg {
 	color: lightgrey;
-	font-size: 40px;
+	font-size: 50px;
 	position: absolute;
-	top: 45%;
+	top: 40%;
 	left: 50%;
 	transform:translate(-50%, -50%);
 	font-family: 'Maven Pro', sans-serif;
-	user-select: none;opacity: 0.8;
+	user-select: none; opacity: 0.8;
+}
+
+.doc-msg {
+	color: lightgrey;
+	font-size: 25px;
+	position: absolute;
+	top: 48%;
+	left: 50%;
+	transform:translate(-50%, -50%);
+	font-family: 'Maven Pro', sans-serif;
+	user-select: none; opacity: 0.8;
+}
+
+a:hover {
+	color: rgb(223, 80, 80);
 }

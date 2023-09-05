@@ -1,7 +1,20 @@
-<?php 
+<?php // mysql utils (PDO functions: connect, read, insert, etc...)
     namespace becwork\utils;
 
     class MysqlUtils {
+
+        private $db_ip;
+        private $db_name;
+        private $db_username;
+        private $db_password;
+
+        // init constructor
+        public function __construct($db_host, $database_name, $username, $password) {
+            $this->db_ip = $db_host;
+            $this->db_name = $database_name;
+            $this->db_username = $username;
+            $this->db_password = $password;
+        }
 
         /* 
           * FUNCTION: database connection (use PDO)
@@ -9,17 +22,16 @@
         */
         public function connect() {
             
-            global $pageConfig;
-            global $siteController;
+            global $config, $siteManager;
 
             // get mysql connection data form app config
-            $address = $pageConfig->getValueByName("mysql-address");
-            $database = $pageConfig->getValueByName("mysql-database");
-            $username = $pageConfig->getValueByName("mysql-username");
-            $password = $pageConfig->getValueByName("mysql-password");
+            $address  = $this->db_ip;
+            $database = $this->db_name;
+            $username = $this->db_username;
+            $password = $this->db_password;
 
             // get default database charset
-            $encoding = $pageConfig->getValueByName("encoding");
+            $encoding = $config->getValue("encoding");
             
             // try connect to database
             try {
@@ -33,16 +45,8 @@
             // catch connection error
             } catch(\PDOException $e) {
                 
-                // check if dev-mode is enabled
-                if ($pageConfig->getValueByName("dev-mode") == true) {
-                    
-                    // print error to page
-                    die('Database connection error: '.$e->getMessage());
-                } else {
-                    
-                    // redirect to error page
-                    $siteController->redirectError("400");
-                }
+                // handle error
+                $siteManager->handleError('Database connection error: '.$e->getMessage(), 400);
             }
 
             // return connection
@@ -56,8 +60,7 @@
         */
         public function insertQuery($query) {
 
-            global $pageConfig;
-            global $siteController;
+            global $config, $siteManager;
 
             // get PDO connection
             $connection = $this->connect();
@@ -73,16 +76,8 @@
             // catch insert error
             } catch(\PDOException $e) {
 
-                // check if dev-mode is enabled
-                if ($pageConfig->getValueByName("dev-mode") == true) {
-                    
-                    // print error to page
-                    die('SQL query insert error: '.$e->getMessage());
-                } else {
-                    
-                    // redirect to error page
-                    $siteController->redirectError("400");
-                }
+                // handle error
+                $siteManager->handleError('SQL query insert error: '.$e->getMessage(), 400);
             }
         }
 
@@ -92,8 +87,7 @@
         */
         public function logToMysql($name, $value) {
 
-            global $escapeUtils;
-            global $mainUtils;
+            global $escapeUtils, $mainUtils;
 
             // check if name is null
             if (empty($name)) {
@@ -126,20 +120,31 @@
         */
         public function fetch($query) {
 
+            global $config;
+
             // get database connection
             $connection = $this->connect();
 
-            // use prepare statement for query
-            $statement = $connection->prepare($query);
+            try {
+                
+                // use prepare statement for query
+                $statement = $connection->prepare($query);
 
-            // execute query
-            $statement->execute();
-            
-            // fetch data
-            $data = $statement->fetchAll();
+                // execute query
+                $statement->execute();
+                
+                // fetch data
+                $data = $statement->fetchAll();
 
-            // return data
-            return $data;
+                // return data
+                return $data;
+
+            // catch fetch error
+            } catch(\PDOException $e) {
+
+                // handle error
+                $siteManager->handleError('SQL fetch error: '.$e->getMessage(), 400);
+            }
         }
 
         /*
@@ -149,8 +154,7 @@
         */
         public function fetchValue($query, $value) {
 
-            global $pageConfig;
-            global $siteController;
+            global $config, $siteManager;
 
             // get database connection
             $connection = $this->connect();
@@ -171,30 +175,20 @@
                 if (array_key_exists($value, $fetch[0])) {
 
                     // get value from retrun
-                    $valueOutput = $fetch[0][$value];
+                    $value_output = $fetch[0][$value];
                 
                 } else {
                 
-                    // print not found error (only for developer mode)
-                    if ($pageConfig->getValueByName("dev-mode")) {
-                        die("Database select error: '$value' not exist in selected data");
-                    } else {
-                        $siteController->redirectError(404);
-                    }
+                    // handle error
+                    $siteManager->handleError("Database select error: '$value' not exist in selected data", 404);
                 }
-
             } else {
-
-                // print not found error (only for developer mode)
-                if ($pageConfig->getValueByName("dev-mode")) {
-                    die("Database select error: please check if query valid, query:'$query'");
-                } else {
-                    $siteController->redirectError(404);
-                }
+                // handle error
+                $siteManager->handleError("Database select error: please check if query valid, query:'$query'", 404);
             }
 
             // return value
-            return $valueOutput;
+            return $value_output;
         }
 
         /*

@@ -1,4 +1,4 @@
-<?php 
+<?php // string escape functions
     
     namespace becwork\utils;
     

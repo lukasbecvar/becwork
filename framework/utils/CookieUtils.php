@@ -1,4 +1,4 @@
-<?php 
+<?php // website cookie managment utils
 
     namespace becwork\utils;
 
@@ -20,7 +20,8 @@
           * Return cookie value
         */
         public function getCookie($name) {
-            return $_COOKIE[$name];
+            $cookie = $_COOKIE[$name];
+            return $cookie;
         }
 
         /*
@@ -41,15 +42,15 @@
 
             $parts = explode('/', $uri);
 
-            $cookiePath = '';
+            $cookie_path = '';
             foreach ($parts as $part) {
-                $cookiePath = '/'.ltrim($cookiePath.'/'.$part, '//');
+                $cookie_path = '/'.ltrim($cookie_path.'/'.$part, '//');
 
-                setcookie($name, '', 1, $cookiePath);
+                setcookie($name, '', 1, $cookie_path);
 
                 $_domain = $domain;
                 do {
-                    setcookie($name, '', 1, $cookiePath, $_domain);
+                    setcookie($name, '', 1, $cookie_path, $_domain);
                 } while (strpos($_domain, '.') !== false && $_domain = substr($_domain, 1 + strpos($_domain, '.')));
             }
         }

@@ -14,9 +14,6 @@ fi
 
 green_echo "Building website..."
 
-
-
-
 # build website
 mkdir build/
 cp -R framework/ build/framework/

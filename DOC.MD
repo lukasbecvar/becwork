@@ -30,7 +30,7 @@
 - Set web root to public/
 - Build production app (panel.sh)
 - Copy files from build/ to your server (web space)
-- Set 400, 403, 404, etc.. errors redirect to ErrorHandlerer.php?code=ERROR_CODE
+- Set 400, 403, 404, etc.. errors redirect to error.php?code=ERROR_CODE
 - Configure config file (disable dev-mode)
 - Execute structure.sql to your database
 - Restart MySQL & reload apache

@@ -1,4 +1,4 @@
-<?php 
+<?php // file get utils
     
     namespace becwork\utils;
     
@@ -11,7 +11,8 @@
         */
         public function getJsonFromUrl($target) {
             $json = file_get_contents($target);
-            return json_decode(utf8_encode($json), true);
+            $data = json_decode(utf8_encode($json), true);
+            return $data;
         }
     }
 ?>
