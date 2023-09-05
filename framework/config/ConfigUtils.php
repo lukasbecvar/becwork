@@ -9,7 +9,7 @@
 		 * INPUT: value name
 		 * RETURN: value 
 		*/
-		public function getValue($name) {
+		public function getValue($name): ?string {
 
 			global $siteManager;
 

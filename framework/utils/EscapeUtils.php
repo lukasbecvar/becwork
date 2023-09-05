@@ -10,8 +10,9 @@
           * INPUT: string
           * RETURN secure string
         */
-        public function specialCharshStrip($string) {
-            return htmlspecialchars($string, ENT_QUOTES);
+        public function specialCharshStrip($string): ?string {
+            $string = htmlspecialchars($string, ENT_QUOTES);
+            return $string;
         }
     }
 ?>

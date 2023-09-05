@@ -10,7 +10,7 @@
 		  * INPUT: domain url
 		  * RETURN: Online or Offline string
 		*/
-		public function checkOnline($domain) {
+		public function checkOnline($domain): string {
 
 			// default output value
 			$output = "Offline";
@@ -41,9 +41,9 @@
 		/*
 		  * FUNCTION: send 404 error
 		*/
-		public function send404Header() {
-		http_response_code(404);
-		header("HTTP/1.0 404 Not Found");
+		public function send404Header(): void {
+			http_response_code(404);
+			header("HTTP/1.0 404 Not Found");
 		}
 
 		/*
@@ -52,7 +52,7 @@
 		* INPUT: server ip and port
 		* RETURN: On or Of string
 		*/
-		public function serviceOnlineCheck($ip, $port) {
+		public function serviceOnlineCheck($ip, $port): string {
 			
 			// default output value
 			$status = "Offline";

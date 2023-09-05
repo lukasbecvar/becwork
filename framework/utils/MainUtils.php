@@ -9,8 +9,8 @@
           * USAGE echo drawPhpInformation()
           * RETURN: phpinfo page
         */
-        public function drawPhpInformation() {
-            return phpinfo();
+        public function drawPhpInformation(): void {
+            phpinfo();
         }
 
         /*
@@ -19,7 +19,7 @@
           * INPUT: time format
           * RETURN: actual time in your format
         */
-        public function drawData($format) {
+        public function drawData($format): ?string {
             return date($format);
         }
 
@@ -28,7 +28,7 @@
           * USAGE $ip = getRemoteAdress()
           * RETURN: remote adress
         */
-        public function getRemoteAdress() {
+        public function getRemoteAdress(): ?string {
             if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
                 $address = $_SERVER['HTTP_CLIENT_IP'];
       
@@ -46,7 +46,7 @@
           * FUNCTION: get document root
           * USAGE redirect("home.php")
         */
-        public static function getRootDoc() {
+        public static function getRootDoc(): ?string {
             return $_SERVER['DOCUMENT_ROOT'];
         }
 
@@ -55,12 +55,17 @@
           * USAGE $protocol = getProtocol();
           * RETURN: protocol (http, https)
         */
-        public function getProtocol() {
+        public function getProtocol(): string {
+
+            // default protocol
+            $protocol = "http://";
+
+            // check if https
             if (!empty($_SERVER['HTTPS'])) {
-                return "https://";
-            } else {
-                return "http://";
-            }
+                $protocol = "https://";
+            } 
+
+            return $protocol;
         }
 
         /*
@@ -68,16 +73,16 @@
           * USAGE drawArray($array)
           * INPUT: array
         */
-        public function drawArray($array) {
+        public function drawArray($array): void {
             echo '<pre>';
             print_r($array);
             echo '</pre>';
         }
-
+ 
         /*
           * display php errors
         */
-        public function drawErrors() {
+        public function drawErrors(): void {
             ini_set('display_errors', 1);
             ini_set('display_startup_errors', 1);
             error_reporting(E_ALL);         
@@ -87,16 +92,21 @@
           FUNCTION: Determine if this is a secure HTTPS connection
           RETURN: bool True if it is a secure HTTPS connection, otherwise false.
         */
-        public function isSSL() {
+        public function isSSL(): bool {
+
+            // default state
+            $state = false;
+
+            // check if https
             if (isset($_SERVER['HTTPS'])) {
                 if ($_SERVER['HTTPS'] == 1) {
-                    return true;
+                    $state = true;
                 } elseif ($_SERVER['HTTPS'] == 'on') {
-                    return true;
+                    $state = true;
                 }
             }
         
-            return false;
+            return $state;
         }
     }
 ?>

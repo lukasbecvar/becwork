@@ -8,7 +8,7 @@
 		  * FUNCTION: start session if not started
 		  * USAGE: sessionStartedCheckWithStart()
 		*/
-		public function sessionStartedCheckWithStart() {
+		public function sessionStartedCheckWithStart(): void {
 			if (session_status() == PHP_SESSION_NONE) {
 				session_start();
 			}
@@ -19,7 +19,7 @@
 		  * USAGE: setSession("name", "value")
 		  * INPUT session name and session value
 		*/
-		public function setSession($session_name, $session_value) {
+		public function setSession($session_name, $session_value): void {
 			$this->sessionStartedCheckWithStart();
 			$_SESSION[$session_name] = $session_value;
 		}
@@ -30,7 +30,7 @@
 		  * INPUT session name
 		  * RETURN: true or false
 		*/
-		public function checkSessionSet($session_name) {
+		public function checkSessionSet($session_name): bool {
 			
 			// default state value
 			$state = false;
@@ -50,7 +50,7 @@
 		  * FUNCTION: session destroy (Destroy all user sessions)
 		  * USAGE: sessionDestroy()
 		*/
-		public function sessionDestroy() {
+		public function sessionDestroy(): void {
 			$this->sessionStartedCheckWithStart();
 			session_destroy();
 		}
@@ -59,7 +59,7 @@
 		  * FUNCTION: print session array
 		  * USAGE: printSession()
 		*/
-		public function printSession() {
+		public function printSession(): void {
 			$this->sessionStartedCheckWithStart();
 			print_r($_SESSION);
 		}

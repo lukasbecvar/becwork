@@ -9,7 +9,7 @@
           * USAGE: cookieSet("TestCookie", 69, time() + (60*60*24*7));
           * INPUT: name value and expiration time in seconds
         */
-        public function cookieSet($name, $value, $expiration) {
+        public function cookieSet($name, $value, $expiration): void {
             setcookie($name, $value, $expiration);
         }
 
@@ -19,7 +19,7 @@
           * INPUT: cookie name
           * Return cookie value
         */
-        public function getCookie($name) {
+        public function getCookie($name): ?string {
             $cookie = $_COOKIE[$name];
             return $cookie;
         }
@@ -29,7 +29,7 @@
           * USAGE: unset_cookie("name");
           * INPUT: cookie name (string)
         */
-        public function unset_cookie($name) {
+        public function unset_cookie($name): void {
             $host = $_SERVER['HTTP_HOST'];
             $domain = explode(':', $host)[0];
 
@@ -59,7 +59,7 @@
           * FUNCTION: print cookie array
           * USAGE: printCookie()
         */
-        public function printCookie() {
+        public function printCookie(): void {
             print_r($_COOKIE);
         }
     }

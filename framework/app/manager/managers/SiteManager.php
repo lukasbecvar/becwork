@@ -5,28 +5,31 @@
 	class SiteManager {
 
         // get maintenance mode value
-        public function ifMaintenance() {
+        public function ifMaintenance(): bool {
 
             global $config;
 
+            // default state value
+            $state = false;
+
             // check if maintenance enabled
             if (($config->getValue('maintenance') == true)) {
-                return true;
-            } else {
-                return false;
+                $state = true;
             }
+
+            return $state;
         }
 
         // get http host url
-        public function getHTTPhost() {
+        public function getHTTPhost(): string {
             $http_host = $_SERVER['HTTP_HOST'];
             return $http_host;
         }
 
         // get query string by name
-        public function getQueryString($query) {
+        public function getQueryString($query): ?string {
             
-            global $mysql;
+            global $escapeUtils;
 
             // check if query is empty
             if (empty($_GET[$query])) {
@@ -34,7 +37,7 @@
             } else {
 
                 // escape query
-                $output = $mysql->escapeString($_GET[$query], true, true);
+                $output = $escapeUtils->specialCharshStrip($_GET[$query]);
             }
 
             // return final query value
@@ -42,7 +45,7 @@
         }
 
         // check if page in dev mode
-        public function isSiteDevMode() {
+        public function isSiteDevMode(): bool {
 
             global $config;
 
@@ -58,7 +61,7 @@
         }
 
         // handle error msg & code
-        public function handleError($msg, $code) {
+        public function handleError($msg, $code): void {
 
             // send response code
             http_response_code($code);
@@ -72,7 +75,7 @@
         }
 
         // redirect to error page
-        public function redirectError($error) {
+        public function redirectError($error): void {
 
             // redirct loaction header
             header("location: error.php?code=$error");
