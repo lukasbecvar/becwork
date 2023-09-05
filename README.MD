@@ -20,6 +20,9 @@ This project requires PHP8 or < .
 * Whoops
    * Version: **2.14.4**
    * [Github](https://github.com/filp/whoops)
+* PHPunit
+   * Version: **10**
+   * [Website](https://phpunit.de/)
 
 ## License
 The framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
