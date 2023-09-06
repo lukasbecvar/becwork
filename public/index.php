@@ -5,7 +5,7 @@
 	require_once("../app/encryption/HashUtils.php");
 	require_once("../app/encryption/CryptUtils.php");
 	require_once("../app/utils/ResponseUtils.php");
-	require_once("../app/utils/FileUtils.php");
+	require_once("../app/utils/JsonUtils.php");
 	require_once("../app/utils/MainUtils.php");
 	require_once("../app/utils/StringUtils.php");
 	require_once("../app/utils/SessionUtils.php");
@@ -37,7 +37,7 @@
 	$escapeUtils = new becwork\utils\EscapeUtils();
 	$cryptUtils = new becwork\utils\CryptUtils();
 	$hashUtils = new becwork\utils\HashUtils();
-	$fileUtils = new becwork\utils\FileUtils();
+	$jsonUtils = new becwork\utils\JsonUtils();
 	$mainUtils = new becwork\utils\MainUtils();
 	$urlUtils = new becwork\utils\UrlUtils();
 	///////////////////////////////////////////////////////////////////////////

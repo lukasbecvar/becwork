@@ -2,7 +2,7 @@
     
     namespace becwork\utils;
     
-    class FileUtils {
+    class JsonUtils {
  
         /*
           * FUNCTION: get json by target url
