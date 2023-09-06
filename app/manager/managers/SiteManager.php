@@ -101,8 +101,21 @@
         // handle error msg & code
         public function handleError($msg, $code): void {
 
+            global $config;
+
             // send response code
             http_response_code($code);
+
+            // check if error log enabled
+            if ($config->getValue("error-log")) {
+
+                // budil error msg
+                $error_msg = "code: ".$code.", ".$msg."\n";
+
+                // log to error.log
+                error_log($error_msg, 3, __DIR__."../../../../error.log");
+            }
+            
 
             // check if site enabled dev-mode
             if ($this->isSiteDevMode()) {

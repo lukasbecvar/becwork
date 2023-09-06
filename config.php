@@ -16,9 +16,10 @@
 			"encoding"    => "utf8",               	 // define default charset
 			
 			/* page config */
-			"maintenance" => false,		// Define maintenance status
+			"maintenance" => false,		// define maintenance status
 			"dev-mode"    => true,		// define devmode enabled
-			"https"       => false,		// If this = true (Site can run only on https://)
+			"https"       => false,		// if this = true (Site can run only on https://)
+			"error-log"   => true,		// enable log errors to log file (error.log)
 
 			/* database config */
 			"db-host-ip"	=> 	"127.0.0.1", 	// define mysql server ip

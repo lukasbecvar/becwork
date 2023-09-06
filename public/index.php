@@ -89,5 +89,9 @@
 			include_once("../site/Router.php");
 		}
 	}
+
+
+	$siteManager->handleError("test", 520);
+
 ?>
 
