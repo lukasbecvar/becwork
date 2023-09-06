@@ -1,29 +1,36 @@
-<?php // config functions utils
+<?php // methods for manipulate with config.php
 
 	namespace becwork\config;
+
+	use \becwork\config\PageConfig;
 
 	class ConfigUtils {
 
 		/*
-		 * FUNCTION: value by name form config
+		 * FUNCTION: value by name form config.php file
 		 * INPUT: value name
-		 * RETURN: value 
+		 * RETURN: config value 
 		*/
 		public function getValue($name): ?string {
 
 			global $siteManager;
 
+			// default value
+			$value = null;
+
 			// link config file
 			require_once(__DIR__."./../../config.php");
 
 			// init config instance
-			$config = new \becwork\config\PageConfig();
+			$configOBJ = new PageConfig();
 			
 			// get config value
-			$value = $config->config[$name];
+			$value = $configOBJ->config[$name];
 
 			// check if value return valid
 			if ($value === null) {
+
+				// handle config error
 				$siteManager->handleError("error to get config value: ".$name." please check config file", 520);
 			} else {
 				return $value;

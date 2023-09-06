@@ -1,21 +1,40 @@
-<?php // hash functions
+<?php // string hash methods
 
 	namespace becwork\utils;
 
 	class HashUtils { 
 
 		/*
-		  * FUNCTION: blowfish hash generate
-		  * USAGE: genBlowFish("plaintext")
-		  * Input text type string
+		  * FUNCTION: hashValidate validate hash = string
+		  * USAGE: hashValidate("password", "password_hash")
+		  * Input text type string, hash type string
+		  * RETURN: true or false
+		*/
+		public function hashValidate($plain_text, $hash): bool {
+
+			// default state
+			$state = false;
+
+			// check if password verified
+			if (password_verify($plain_text, $hash)) {
+				$state = true;
+			} 
+
+			return $state;
+		}
+
+		/*
+		  * FUNCTION: bcrypt hash generate
+		  * USAGE: genBcrypt("plaintext", "cost int")
+		  * Input text type string, hash cost type int
 		  * RETURN: final hash type string
 		*/
-		public function genBlowFish($plain_text): string {
-			$hash_fromat = "$2y$10$";
-			$salt = "123sbrznvdzvchpj8z5p5k";
-			$hash_fromat_salt = $hash_fromat.$salt;
-			$crypted = crypt($plain_text, $hash_fromat_salt);
-			return $crypted;
+		public function genBcrypt($plain_text, $cost): string {
+			$options = [
+				'cost' => $cost
+			];
+			$hash_final = password_hash($plain_text, PASSWORD_BCRYPT, $options);
+			return $hash_final;
 		}
 
 		/*

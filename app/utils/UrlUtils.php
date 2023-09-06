@@ -47,7 +47,7 @@
 		  * FUNCTION: get route uri
 		  * USAGE: $route = getRoute();
 		*/
-		public function getRoute(): ?string {
+		public function getRoute(): string {
 			$uri = $_SERVER['REQUEST_URI'];
 			return $uri;
 		}

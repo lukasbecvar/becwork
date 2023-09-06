@@ -1,4 +1,4 @@
-<?php // website cookie managment utils
+<?php // browser cookie managment utils
 
     namespace becwork\utils;
 

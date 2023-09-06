@@ -1,4 +1,4 @@
-<?php // encryption utils
+<?php // string encryption & encode methods
 
 	namespace becwork\utils;
 

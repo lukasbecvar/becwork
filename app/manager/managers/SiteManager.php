@@ -1,8 +1,46 @@
-<?php // main site actions manager
+<?php // main site manager
 
     namespace becwork\managers;
 
 	class SiteManager {
+
+        // check if loaded url is valid
+        public function isValidUrl(): bool {
+
+            global $config;
+
+            // default state
+            $state = false;
+
+            // get host url
+            $url = $this->getHTTPhost();
+
+            // check if url valid
+            if ($url == $config->getValue("url")) {
+                $state = true;
+            }
+
+            return $state;
+        }
+
+        // check if ssl running valid
+        public function checkSSL(): bool {
+
+            global $config, $mainUtils;
+
+            // default state
+            $state = true;
+
+            // check if only https enabled
+            if ($config->getValue("https")) {
+
+                if (!$mainUtils->isSSL()) {
+                    $state = false;
+                }
+            }
+
+            return $state;
+        }
 
         // get maintenance mode value
         public function ifMaintenance(): bool {

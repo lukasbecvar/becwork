@@ -28,12 +28,13 @@
 - Install MariaDB or MySQL
 - Disable apache autoindex
 - Set web root to public/
+- Enable apache AllowOverride All (for router)
 - Build production app (panel.sh)
 - Copy files from build/ to your server (web space)
 - Set 400, 403, 404, etc.. errors redirect to error.php?code=ERROR_CODE
 - Configure config file (disable dev-mode)
 - Execute structure.sql to your database
-- Restart MySQL & reload apache
+- Restart MySQL & Apache
 - Try open your site in browser
 
 # <h2 id="configuration">Configuration</h2>
