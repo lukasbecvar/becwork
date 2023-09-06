@@ -6,10 +6,10 @@
  
         /*
           * FUNCTION: get json by target url
-          * USAGE $json = getJsonFromUrl("https://www.becvar.xyz/api/becwork.json")
+          * USAGE $json = get_json_from_url("https://www.becvar.xyz/api/becwork.json")
           * RETURN json object
         */
-        public function getJsonFromUrl($target): ?array {
+        public function get_json_from_url($target): ?array {
 
             // requst options
             $opts = [

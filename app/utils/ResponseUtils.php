@@ -6,11 +6,11 @@
 
 		/*
 		  * FUNCTION: get website status by domain
-		  * USAGE: $status = checkOnline("https://becvar.xyz");
+		  * USAGE: $status = check_online("https://becvar.xyz");
 		  * INPUT: domain url
 		  * RETURN: Online or Offline string
 		*/
-		public function checkOnline($domain): string {
+		public function check_online($domain): string {
 
 			// default output value
 			$output = "Offline";
@@ -41,18 +41,18 @@
 		/*
 		  * FUNCTION: send 404 error
 		*/
-		public function send404Header(): void {
+		public function send_404_header(): void {
 			http_response_code(404);
 			header("HTTP/1.0 404 Not Found");
 		}
 
 		/*
 		* FUNCTION: get service status
-		* USAGE: $status = serviceOnlineCheck("127.0.0.1", 25565);
+		* USAGE: $status = service_online_check("127.0.0.1", 25565);
 		* INPUT: server ip and port
 		* RETURN: On or Of string
 		*/
-		public function serviceOnlineCheck($ip, $port): string {
+		public function service_online_check($ip, $port): string {
 			
 			// default output value
 			$status = "Offline";

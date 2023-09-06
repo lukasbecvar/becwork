@@ -5,12 +5,12 @@
 	class HashUtils { 
 
 		/*
-		  * FUNCTION: hashValidate validate hash = string
-		  * USAGE: hashValidate("password", "password_hash")
+		  * FUNCTION: hash_validate validate hash = string
+		  * USAGE: hash_validate("password", "password_hash")
 		  * Input text type string, hash type string
 		  * RETURN: true or false
 		*/
-		public function hashValidate($plain_text, $hash): bool {
+		public function hash_validate($plain_text, $hash): bool {
 
 			// default state
 			$state = false;
@@ -25,11 +25,11 @@
 
 		/*
 		  * FUNCTION: bcrypt hash generate
-		  * USAGE: genBcrypt("plaintext", "cost int")
+		  * USAGE: gen_bcrypt("plaintext", "cost int")
 		  * Input text type string, hash cost type int
 		  * RETURN: final hash type string
 		*/
-		public function genBcrypt($plain_text, $cost): string {
+		public function gen_bcrypt($plain_text, $cost): string {
 			$options = [
 				'cost' => $cost
 			];
@@ -38,46 +38,46 @@
 		}
 
 		/*
-		  * FUNCTION: genSHA1 hash generate
-		  * USAGE: genSHA1("plaintext")
+		  * FUNCTION: gen_sha1 hash generate
+		  * USAGE: gen_sha1("plaintext")
 		  * Input text type string
 		  * RETURN: final hash type string
 		*/
-		public function genSHA1($plain_text): string {
+		public function gen_sha1($plain_text): string {
 			$hash = "*" . sha1(sha1($plain_text, true));
 			$hash_final = strtoupper($hash);
 			return $hash_final;
 		}
 
 		/*
-		  * FUNCTION: hashMD5 hash generate
-		  * USAGE: hashMD5("plaintext")
+		  * FUNCTION: gen_md5 hash generate
+		  * USAGE: gen_md5("plaintext")
 		  * Input text type string
 		  * RETURN: final hash type string
 		*/
-		public function hashMD5($plain_text): string {
+		public function gen_md5($plain_text): string {
 			$hash_final= hash('md5', $plain_text);
 			return $hash_final;
 		}
 
 		/*
 		  * FUNCTION: generate sha256 hash form string
-		  * USAGE: genSHA256("string");
+		  * USAGE: gen_sha256("string");
 		  * INPUT: text in string
 		  * RETURN: final sha256 hash form string
 		*/
-		public function genSHA256($plain_text): string {
+		public function gen_sha256($plain_text): string {
 			$final_hash = hash('sha256', $plain_text);
 			return $final_hash;
 		}
 
 		/*
 		  * FUNCTION: generate custom hash form string by name
-		  * USAGE: customhash("string", "sha1");
+		  * USAGE: custom_hash("string", "sha1");
 		  * INPUT: text in string, hash name in string
 		  * RETURN: final hash form string
 		*/
-		public function customHash($plain_text, $hash): string {
+		public function custom_hash($plain_text, $hash): string {
 			$final_hash = hash($hash, $plain_text);
 			return $final_hash;
 		}

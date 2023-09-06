@@ -5,7 +5,7 @@
 	class SiteManager {
 
         // check if loaded url is valid
-        public function isValidUrl(): bool {
+        public function is_valid_url(): bool {
 
             global $config;
 
@@ -13,10 +13,10 @@
             $state = false;
 
             // get host url
-            $url = $this->getHTTPhost();
+            $url = $this->get_http_host();
 
             // check if url valid
-            if ($url == $config->getValue("url")) {
+            if ($url == $config->get_value("url")) {
                 $state = true;
             }
 
@@ -24,17 +24,17 @@
         }
 
         // check if ssl running valid
-        public function checkSSL(): bool {
+        public function check_ssl(): bool {
 
-            global $config, $mainUtils;
+            global $config, $main_utils;
 
             // default state
             $state = true;
 
             // check if only https enabled
-            if ($config->getValue("https")) {
+            if ($config->get_value("https")) {
 
-                if (!$mainUtils->isSSL()) {
+                if (!$main_utils->is_ssl()) {
                     $state = false;
                 }
             }
@@ -43,7 +43,7 @@
         }
 
         // get maintenance mode value
-        public function ifMaintenance(): bool {
+        public function is_maintenance(): bool {
 
             global $config;
 
@@ -51,7 +51,7 @@
             $state = false;
 
             // check if maintenance enabled
-            if (($config->getValue('maintenance') == true)) {
+            if (($config->get_value('maintenance') == true)) {
                 $state = true;
             }
 
@@ -59,15 +59,15 @@
         }
 
         // get http host url
-        public function getHTTPhost(): string {
+        public function get_http_host(): string {
             $http_host = $_SERVER['HTTP_HOST'];
             return $http_host;
         }
 
         // get query string by name
-        public function getQueryString($query): ?string {
+        public function get_query_string($query): ?string {
             
-            global $escapeUtils;
+            global $escape_utils;
 
             // check if query is empty
             if (empty($_GET[$query])) {
@@ -75,7 +75,7 @@
             } else {
 
                 // escape query
-                $output = $escapeUtils->specialCharshStrip($_GET[$query]);
+                $output = $escape_utils->special_charsh_strip($_GET[$query]);
             }
 
             // return final query value
@@ -83,7 +83,7 @@
         }
 
         // check if page in dev mode
-        public function isSiteDevMode(): bool {
+        public function is_dev_mode(): bool {
 
             global $config;
 
@@ -91,15 +91,22 @@
 			$state = false;
 
             // check if dev mode enabled
-            if ($config->getValue("dev-mode") == true) {
+            if ($config->get_value("dev-mode") == true) {
                 $state = true;
             }
             
             return $state;
         }
 
+        // redirect to error page
+        public function redirect_error($error): void {
+
+            // redirct loaction header
+            header("location: error.php?code=$error");
+        }
+
         // handle error msg & code
-        public function handleError($msg, $code): void {
+        public function handle_error($msg, $code): void {
 
             global $config;
 
@@ -107,7 +114,7 @@
             http_response_code($code);
 
             // check if error log enabled
-            if ($config->getValue("error-log")) {
+            if ($config->get_value("error-log")) {
 
                 // budil error msg
                 $error_msg = "code: ".$code.", ".$msg."\n";
@@ -118,18 +125,11 @@
             
 
             // check if site enabled dev-mode
-            if ($this->isSiteDevMode()) {
+            if ($this->is_dev_mode()) {
                 die("[DEV-MODE]: ".$msg);
             } else {
-                $this->redirectError($code);
+                $this->redirect_error($code);
             }
-        }
-
-        // redirect to error page
-        public function redirectError($error): void {
-
-            // redirct loaction header
-            header("location: error.php?code=$error");
         }
     }
 ?>

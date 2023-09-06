@@ -25,7 +25,7 @@
         */
         public function connect(): PDO {
             
-            global $config, $siteManager;
+            global $config, $site_manager;
 
             // get mysql connection data form app config
             $address  = $this->db_ip;
@@ -34,7 +34,7 @@
             $password = $this->db_password;
 
             // get default database charset
-            $encoding = $config->getValue("encoding");
+            $encoding = $config->get_value("encoding");
             
             // try connect to database
             try {
@@ -49,7 +49,7 @@
             } catch(PDOException $e) {
                 
                 // handle error
-                $siteManager->handleError('database connection error: '.$e->getMessage(), 400);
+                $site_manager->handle_error('database connection error: '.$e->getMessage(), 400);
             }
 
             // return connection
@@ -58,12 +58,12 @@
 
         /*
           * FUNCTION:  database insert sql query function (Use database name from config.php)
-          * USAGE: like insertQuery("INSERT INTO logs(name, value, date, remote_addr) VALUES('log name', 'log value', 'log date', 'log remote_addr')")
+          * USAGE: like insert_query("INSERT INTO logs(name, value, date, remote_addr) VALUES('log name', 'log value', 'log date', 'log remote_addr')")
           * INPUT: sql command like string
         */
-        public function insertQuery($query): void {
+        public function insert_query($query): void {
 
-            global $config, $siteManager;
+            global $config, $site_manager;
 
             // get PDO connection
             $connection = $this->connect();
@@ -80,17 +80,17 @@
             } catch(PDOException $e) {
 
                 // handle error
-                $siteManager->handleError('sql insert error: '.$e->getMessage(), 400);
+                $site_manager->handle_error('sql insert error: '.$e->getMessage(), 400);
             }
         }
 
         /*
-         * FUNCTION: mysql log function (Muste instaled logs table form sql)
+         * FUNCTION: mysql log function
          * INPUT: log name and value
         */
-        public function logToMysql($name, $value): void {
+        public function log($name, $value): void {
 
-            global $escapeUtils, $mainUtils;
+            global $escape_utils, $main_utils;
 
             // check if name is null
             if (empty($name)) {
@@ -103,17 +103,17 @@
             }
 
             // get data & escape
-            $name = $escapeUtils->specialCharshStrip($name);
-            $value = $escapeUtils->specialCharshStrip($value);
+            $name = $escape_utils->special_charsh_strip($name);
+            $value = $escape_utils->special_charsh_strip($value);
 
             // get current log date
             $date = date('d.m.Y H:i:s');
             
             // get remote address
-            $remote_addr = $mainUtils->getRemoteAdress();
+            $remote_addr = $main_utils->get_remote_adress();
 
             // insert log to mysql
-            $this->insertQuery("INSERT INTO logs(name, value, date, remote_addr) VALUES('$name', '$value', '$date', '$remote_addr')");
+            $this->insert_query("INSERT INTO logs(name, value, date, remote_addr) VALUES('$name', '$value', '$date', '$remote_addr')");
         }
 
         /*
@@ -146,7 +146,7 @@
             } catch(PDOException $e) {
 
                 // handle error
-                $siteManager->handleError('sql fetch error: '.$e->getMessage(), 400);
+                $site_manager->handle_error('sql fetch error: '.$e->getMessage(), 400);
             }
         }
 
@@ -155,9 +155,9 @@
           * INPUT: sql query & specific value
           * RETURN: selected value
         */
-        public function fetchValue($query, $value): ?string {
+        public function fetch_value($query, $value): ?string {
 
-            global $config, $siteManager;
+            global $config, $site_manager;
 
             // get database connection
             $connection = $this->connect();
@@ -185,13 +185,13 @@
                     } else {
                     
                         // handle error
-                        $siteManager->handleError("database select error: '$value' not exist in selected data", 404);
+                        $site_manager->handle_error("database select error: '$value' not exist in selected data", 404);
                     }
 
                 } else {
 
                     // handle error
-                    $siteManager->handleError("database select error: please check if query valid, query:'$query'", 404);
+                    $site_manager->handle_error("database select error: please check if query valid, query:'$query'", 404);
                 }
 
                 // return value
@@ -201,16 +201,16 @@
             } catch(\PDOException $e) {
 
                 // handle error
-                $siteManager->handleError('sql fetch error: '.$e->getMessage(), 400);
+                $site_manager->handle_error('sql fetch error: '.$e->getMessage(), 400);
             }
         }
 
         /*
           * FUNCTION: get version function
-          * USAGE: $ver = getMySQLVersion();
+          * USAGE: $ver = get_version();
           * RETURN: mysql version in system
         */
-        public function getMySQLVersion(): ?string {
+        public function get_version(): ?string {
             $output = shell_exec('mysql -V');
             preg_match('@[0-9]+\.[0-9]+\.[0-9]+@', $output, $version);
             return $version[0];

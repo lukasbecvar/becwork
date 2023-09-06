@@ -6,20 +6,20 @@
 
         /*
           * FUNCTION: set cookie with name, value, expiration
-          * USAGE: cookieSet("TestCookie", 69, time() + (60*60*24*7));
+          * USAGE: cookie_set("TestCookie", 69, time() + (60*60*24*7));
           * INPUT: name value and expiration time in seconds
         */
-        public function cookieSet($name, $value, $expiration): void {
+        public function cookie_set($name, $value, $expiration): void {
             setcookie($name, $value, $expiration);
         }
 
         /*
           * FUNCTION: get cookie by name
-          * USAGE: $cookie = getCookie("cookieName")
+          * USAGE: $cookie = get_cookie("cookieName")
           * INPUT: cookie name
           * Return cookie value
         */
-        public function getCookie($name): ?string {
+        public function get_cookie($name): ?string {
             $cookie = $_COOKIE[$name];
             return $cookie;
         }
@@ -57,9 +57,9 @@
 
         /*
           * FUNCTION: print cookie array
-          * USAGE: printCookie()
+          * USAGE: print_cookie()
         */
-        public function printCookie(): void {
+        public function print_cookie(): void {
             print_r($_COOKIE);
         }
     }

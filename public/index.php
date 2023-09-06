@@ -21,25 +21,25 @@
 	$config = new becwork\config\ConfigUtils();
 	
 	// get mysql data
-	$database_ip = $config->getValue("db-host-ip");
-	$database_name = $config->getValue("db-database");
-	$database_username = $config->getValue("db-username");
-	$database_password = $config->getValue("db-password");
+	$database_ip = $config->get_value("db-host-ip");
+	$database_name = $config->get_value("db-database");
+	$database_username = $config->get_value("db-username");
+	$database_password = $config->get_value("db-password");
 
 	// init mysql instance
 	$mysql = new becwork\utils\MysqlUtils($database_ip, $database_name, $database_username, $database_password);
 
 	// init objects
-	$responseUtils = new becwork\utils\ResponseUtils();
-	$sessionUtils = new becwork\utils\SessionUtils();
-	$stringUtils = new becwork\utils\StringUtils();
-	$cookieUtils = new becwork\utils\CookieUtils();
-	$escapeUtils = new becwork\utils\EscapeUtils();
-	$cryptUtils = new becwork\utils\CryptUtils();
-	$hashUtils = new becwork\utils\HashUtils();
-	$jsonUtils = new becwork\utils\JsonUtils();
-	$mainUtils = new becwork\utils\MainUtils();
-	$urlUtils = new becwork\utils\UrlUtils();
+	$response_utils = new becwork\utils\ResponseUtils();
+	$session_utils = new becwork\utils\SessionUtils();
+	$string_utils = new becwork\utils\StringUtils();
+	$cookie_utils = new becwork\utils\CookieUtils();
+	$escape_utils = new becwork\utils\EscapeUtils();
+	$crypt_utils = new becwork\utils\CryptUtils();
+	$hash_utils = new becwork\utils\HashUtils();
+	$json_utils = new becwork\utils\JsonUtils();
+	$main_utils = new becwork\utils\MainUtils();
+	$url_utils = new becwork\utils\UrlUtils();
 	///////////////////////////////////////////////////////////////////////////
 
 	// check if composer installed
@@ -48,40 +48,40 @@
 	} else {
 		
 		// handle error redirect to error page if composer components is not installed
-		$siteManager->handleError("vendor directory not found, plese run composer install", 520);
+		$site_manager->handle_error("vendor directory not found, plese run composer install", 520);
 	} 
 
 	// set default encoding
-	header('Content-type: text/html; charset='.$config->getValue('encoding'));
+	header('Content-type: text/html; charset='.$config->get_value('encoding'));
 
 	// init whoops for error headling
-	if ($siteManager->isSiteDevMode() == true) {
+	if ($site_manager->is_dev_mode() == true) {
 		$whoops = new \Whoops\Run;
 		$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 		$whoops->register();
 	}
 
 	// check if page is in maintenance mode
-	if($siteManager->ifMaintenance()) {
+	if($site_manager->is_maintenance()) {
 		include_once("../site/errors/Maintenance.php");
 	} else { 
 		
 		// check if url-check is enabled
-		if ($config->getValue("url-check")) {
+		if ($config->get_value("url-check")) {
 
 			// check if page loaded with valid url 
-			if (!$siteManager->isValidUrl()) {
+			if (!$site_manager->is_valid_url()) {
 
 				// handle invalid url error
-				$siteManager->handleError("invalid url load, plese check [url-check, url]: values in config.php", 400);
+				$site_manager->handle_error("invalid url load, plese check [url-check, url]: values in config.php", 400);
 			}
 		}
 
 		// check if page running on https
-		if (!$siteManager->checkSSL()) {
+		if (!$site_manager->check_ssl()) {
 
 			// handle invalid https error
-			$siteManager->handleError("this site can run only on https protocol, check your url in browser or config.php", 400);
+			$site_manager->handle_error("this site can run only on https protocol, check your url in browser or config.php", 400);
 		} 
 			
 		// init main router
@@ -90,4 +90,3 @@
 		}
 	}
 ?>
-

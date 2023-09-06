@@ -1,7 +1,7 @@
 <?php // main site router 
 
 	// get route
-	$route = $urlUtils->getRoute();
+	$route = $url_utils->get_route();
 
     // main root route
     if ($route == "/") {

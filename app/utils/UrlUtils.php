@@ -6,22 +6,22 @@
 
 		/*
 		  * FUNCTION: get actual url by protocol
-		  * USAGE: getActualURLComplete('https://')
+		  * USAGE: get_complete_url('https://')
 		  * INPUT: protocol
 		  * RETURN: actual page complete
 		*/
-		public function getActualURLComplete($protocol): ?string {
+		public function get_complete_url($protocol): ?string {
 			$url = $protocol.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 			return $url;
 		}
 
 		/*
 		  * FUNCTION: get actual url by protocol
-		  * USAGE: getActualURL('https://')
+		  * USAGE: get_url('https://')
 		  * INPUT: protocol
 		  * RETURN: actual base page
 		*/
-		public function getActualURL($protocol): ?string {
+		public function get_url($protocol): ?string {
 			$url = $protocol.$_SERVER['HTTP_HOST'];
 			return $url;
 		}
@@ -45,18 +45,18 @@
 
 		/*
 		  * FUNCTION: get route uri
-		  * USAGE: $route = getRoute();
+		  * USAGE: $route = get_route();
 		*/
-		public function getRoute(): string {
+		public function get_route(): string {
 			$uri = $_SERVER['REQUEST_URI'];
 			return $uri;
 		}
 
 		/*
 		  * FUNCTION: redirect with java script
-		  * USAGE: jsRedirect("index.php")
+		  * USAGE: js_redirect("index.php")
 		*/
-		public function jsRedirect($page): void {
+		public function js_redirect($page): void {
 			print '<script type="text/javascript">window.location.replace("'.$page.'");</script>';
 		}
 	}

@@ -6,71 +6,23 @@
 
 		/*
 		  * FUNCTION: generate random lower string
-		  * USAGE: echo genRandomStringLower(20)
-		  * INPUT string lenght
+		  * USAGE: echo gen_random_sring(20, "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+		  * INPUT string lenght, string allowed characters
 		  * RETURN: random string in lowercase
 		*/
-		public function genRandomStringLower($lenght): string {
+		public function gen_random_sring($lenght, $permitted_chars): ?string {
 			$permitted_chars = 'abcdefghijklmnopqrstuvwxyz';
 			$generated = substr(str_shuffle($permitted_chars), 0, $lenght);
 			return $generated;
 		}
 
 		/*
-		  * FUNCTION: generate random uper string
-		  * USAGE: echo genRandomStringUper(20)
-		  * INPUT string lenght
-		  * RETURN: random string in upercase
-		*/
-		public function genRandomStringUper($lenght): string {
-			$permitted_chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-			$generated = substr(str_shuffle($permitted_chars), 0, $lenght);
-			return $generated;
-		}
-
-		/*
-		  * FUNCTION: generate random string
-		  * USAGE: echo genRandomStringAll(20)
-		  * INPUT string lenght
-		  * RETURN: random string
-		*/
-		public function genRandomStringAll($lenght): string {
-			$permitted_chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-			$generated = substr(str_shuffle($permitted_chars), 0, $lenght);
-			return $generated;
-		}
-
-		/*
-		  * FUNCTION: generate random special chars
-		  * USAGE: echo genSpecialChars(20)
-		  * INPUT string lenght
-		  * RETURN: random special chars type string
-		*/
-		public function genSpecialChars($lenght): string {
-			$permitted_chars = "!#$%&()*+,-./:;<=>?@[\]^_`{|}~";
-			$generated = substr(str_shuffle($permitted_chars), 0, $lenght);
-			return $generated;
-		}
-
-		/*
-		  * FUNCTION: generate random characters
-		  * USAGE: echo genCombinated(20)
-		  * INPUT string lenght
-		  * RETURN: random chars type string
-		*/
-		public static function genCombinated($lenght): string {
-			$permitted_chars = "0123456789!#$%&()*+,-./:;<=>?@[\]^_`{|}~0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-			$generated = substr(str_shuffle($permitted_chars), 0, $lenght);
-			return $generated;
-		}
-
-		/*
 		  * FUNCTION: generate random numbers
-		  * USAGE: echo genNumbrGenerator(20)
+		  * USAGE: echo gen_random_number(20)
 		  * INPUT string lenght
 		  * RETURN: random numbers type string
 		*/
-		public static function genNumbrGenerator($lenght): string {
+		public static function gen_random_number($lenght): string {
 			$permitted_chars = "0123456789";
 			$generated = substr(str_shuffle($permitted_chars), 0, $lenght);
 			return $generated;

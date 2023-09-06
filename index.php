@@ -1,3 +1,3 @@
-<?php //Redirect to public dir
-    header("location:public/");
+<?php // redirect to public dir
+    header("location: public/");
 ?>

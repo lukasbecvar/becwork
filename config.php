@@ -8,7 +8,7 @@
 
 			/* main config */
 			"app-name"    => "Becwork",            	 // define app name
-			"version"     => 4.2,                  	 // define app version
+			"version"     => 4.3,                  	 // define app version
 			"author"      => "Lukáš Bečvář",       	 // define app author
 			"author-link" => "https://becvold.xyz/", // define author site
 			"url-check"   => false,				     //	check if url valid

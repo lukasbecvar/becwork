@@ -4,5 +4,5 @@
     require_once(__DIR__."/managers/SiteManager.php");
     
     // init managers instances
-    $siteManager = new becwork\managers\SiteManager();
+    $site_manager = new becwork\managers\SiteManager();
 ?>

@@ -11,9 +11,9 @@
 		 * INPUT: value name
 		 * RETURN: config value 
 		*/
-		public function getValue($name): ?string {
+		public function get_value($name): ?string {
 
-			global $siteManager;
+			global $site_manager;
 
 			// default value
 			$value = null;
@@ -22,16 +22,16 @@
 			require_once(__DIR__."./../../config.php");
 
 			// init config instance
-			$configOBJ = new PageConfig();
+			$config_OBJ = new PageConfig();
 			
 			// get config value
-			$value = $configOBJ->config[$name];
+			$value = $config_OBJ->config[$name];
 
 			// check if value return valid
 			if ($value === null) {
 
 				// handle config error
-				$siteManager->handleError("error to get config value: ".$name." please check config file", 520);
+				$site_manager->handle_error("error to get config value: ".$name." please check config file", 520);
 			} else {
 				return $value;
 			}

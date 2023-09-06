@@ -5,11 +5,7 @@
 	<link rel="icon" href="/assets/img/favicon.png" type="image/x-icon"/>
 	<link href="/assets/css/main.css" rel="stylesheet">
 	<title>
-		<?php
-			// get app title 
-			$app_title = $config->getValue("app-name")." ".$config->getValue("version"); 
-			echo $app_title;
-		?>
+		<?= $config->get_value("app-name")." ".$config->get_value("version"); ?>
 	</title>
 </head>
 <body>

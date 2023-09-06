@@ -6,11 +6,11 @@
 
         /*
           * FUNCTION: escape dangerous chars in string (XSS proteection)
-          * USAGE specialCharshStrip("<p>Ola</p>")
+          * USAGE special_charsh_strip("<p>Ola</p>")
           * INPUT: string
           * RETURN secure string
         */
-        public function specialCharshStrip($string): ?string {
+        public function special_charsh_strip($string): ?string {
             $string = htmlspecialchars($string, ENT_QUOTES);
             return $string;
         }
