@@ -12,7 +12,7 @@
 	require_once("../app/utils/UrlUtils.php");
 	require_once("../app/utils/CookieUtils.php");
 	require_once("../app/utils/EscapeUtils.php");
-	require_once("../app/mysql/MysqlUtils.php");
+	require_once("../app/database/MysqlUtils.php");
 
 	// init app managers
 	require_once("../app/manager/ManagerListener.php");
@@ -21,10 +21,10 @@
 	$config = new becwork\config\ConfigUtils();
 	
 	// get mysql data
-	$database_ip = $config->getValue("mysql-address");
-	$database_name = $config->getValue("mysql-database");
-	$database_username = $config->getValue("mysql-username");
-	$database_password = $config->getValue("mysql-password");
+	$database_ip = $config->getValue("db-host-ip");
+	$database_name = $config->getValue("db-database");
+	$database_username = $config->getValue("db-username");
+	$database_password = $config->getValue("db-password");
 
 	// init mysql instance
 	$mysql = new becwork\utils\MysqlUtils($database_ip, $database_name, $database_username, $database_password);

@@ -20,11 +20,11 @@
 			"dev-mode"    => true,		// define devmode enabled
 			"https"       => false,		// If this = true (Site can run only on https://)
 
-			/* mysql config */
-			"mysql-address"		=> 	"127.0.0.1", 	// define mysql server ip
-			"mysql-database" 	=> 	"becwork",  	// define mysql default db name
-			"mysql-username"	=> 	"root", 		// define mysql user 
-			"mysql-password" 	=> 	"root"			// define Mysql password
+			/* database config */
+			"db-host-ip"	=> 	"127.0.0.1", 	// define mysql server ip
+			"db-database" 	=> 	"becwork",  	// define mysql default db name
+			"db-username"	=> 	"root", 		// define mysql user 
+			"db-password" 	=> 	"root"			// define Mysql password
 		];
 	}
 ?>
