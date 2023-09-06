@@ -16,7 +16,7 @@ green_echo "Building website..."
 
 # build website
 mkdir build/
-cp -R framework/ build/framework/
+cp -R app/ build/app/
 cp -R public/ build/public/
 cp -R scripts/ build/scripts/
 cp -R site/ build/site/
