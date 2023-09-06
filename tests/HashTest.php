@@ -10,7 +10,7 @@
     final class HashTest extends TestCase {
 
         // test hash validation (test with invalid hash)
-        public function testhash_validateFlase() {
+        public function test_hash_validate_flase() {
             $hash_utils = new HashUtils();
 
             $state = $hash_utils->hash_validate("test", "shity shity");
@@ -18,7 +18,7 @@
         }
 
         // test hash validation (test with valid hash, bcrypt cost 10)
-        public function testhash_validateTrue() {
+        public function test_hash_validate_true() {
             $hash_utils = new HashUtils();
 
             $state = $hash_utils->hash_validate("test", "$2y$10$3Dlhb9Ju6/o0mec6JOy00OX.YzrYjczWf7bDh172SejdAVtQWFv2O");
@@ -26,7 +26,7 @@
         }
 
         // test bcrypt hash
-        public function testBcrypt(): void {
+        public function test_bcrypt(): void {
             $hash_utils = new HashUtils();
 
             $hash = $hash_utils->gen_bcrypt("test", 10);
@@ -34,7 +34,7 @@
         }
 
         // test sha1 hash
-        public function testSHA1(): void {
+        public function test_sha1(): void {
             $hash_utils = new HashUtils();
 
             $hash = $hash_utils->gen_sha1("test");
@@ -42,7 +42,7 @@
         }
 
         // test md5
-        public function testMD5(): void {
+        public function test_md5(): void {
             $hash_utils = new HashUtils();
 
             $hash = $hash_utils->gen_md5("test");
@@ -50,7 +50,7 @@
         }
 
         // test sha 256
-        public function testSHA256(): void {
+        public function test_sha256(): void {
             $hash_utils = new HashUtils();
 
             $hash = $hash_utils->gen_sha256("test");
@@ -58,7 +58,7 @@
         }
 
         // test custom hash (with md4)
-        public function testcustom_hash(): void {
+        public function test_custom_hash(): void {
             $hash_utils = new HashUtils();
 
             $hash = $hash_utils->custom_hash("test", "md4");

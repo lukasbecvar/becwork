@@ -10,7 +10,7 @@
     final class CryptTest extends TestCase {
 
         // test base64 encode
-        public function testBase64Encode(): void {
+        public function test_base64_encode(): void {
             $crypt_utils = new CryptUtils();
 
             $encode = $crypt_utils->gen_base64("test");
@@ -18,7 +18,7 @@
         }
 
         // test base64 decode
-        public function testBase64Decode(): void {
+        public function test_base64_decode(): void {
             $crypt_utils = new CryptUtils();
 
             $decode = $crypt_utils->decode_base64("dGVzdA==");
@@ -26,7 +26,7 @@
         }
 
         // test AES-128-CBC encryption
-        public function testAesEncryption(): void {
+        public function test_aes_encryption(): void {
             $crypt_utils = new CryptUtils();
 
             // testing string
