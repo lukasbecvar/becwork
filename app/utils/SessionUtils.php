@@ -39,7 +39,7 @@
 		  * INPUT session name
 		  * RETURN: true or false
 		*/
-		public function check_session_set($session_name): bool {
+		public function check($session_name): bool {
 			
 			// default state value
 			$state = false;
