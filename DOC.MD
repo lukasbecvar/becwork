@@ -4,7 +4,6 @@
 - <a href="#requirements">Requirements</a>
 - <a href="#installation">Installation</a>
 - <a href="#configuration">Configuration</a>
-- <a href="#controllers">Controllers</a>
 - <a href="#assets">Assets</a>
 
 # <h2 id="requirements">Requirements</h2>
@@ -50,10 +49,5 @@
 - ``maintenance`` = enable maintenance redirct mode
 - ``mysql config`` = define default mysql login data
 
-# <h2 id="controllers">Controllers</h2>
-- Create a new controller under the namespace: becwork\controller
-- After creating a new controller, add it to ControllerManager.php
-
 # <h2 id="assets">Assets</h2>
 - Default css is public/assets/css/main.css
-- You can add new assets to public/assets/*/
