@@ -24,6 +24,9 @@ This project requires PHP8 or < .
    * Version: **10**
    * [Website](https://phpunit.de/)
 
+## End of support
+This project is no longer being maintained or developed, and no further updates or support will be provided.
+
 ## License
 The framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
